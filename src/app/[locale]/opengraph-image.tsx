@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+import { SITE_NAME, SITE_ROLE } from "@/constants";
 import { locales } from "@/i18n/config";
 import { OG_COLORS, OG_SIZE, ogBaseStyles, ogTagStyles } from "@/lib/og";
 
@@ -9,7 +10,7 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const alt = "Roman Frolov - Frontend Developer";
+export const alt = `${SITE_NAME} - ${SITE_ROLE}`;
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
@@ -38,7 +39,7 @@ export default function Image() {
             margin: 0,
           }}
         >
-          Roman Frolov
+          {SITE_NAME}
         </h1>
         <p
           style={{
@@ -47,7 +48,7 @@ export default function Image() {
             margin: 0,
           }}
         >
-          Frontend Developer
+          {SITE_ROLE}
         </p>
         <div
           style={{

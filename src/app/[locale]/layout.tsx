@@ -9,7 +9,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { Footer, Navbar } from "@/components/layout";
 import { CronitorProvider, LanguageProvider, MotionProvider, TactileProvider, ThemeProvider } from "@/components/providers";
 import { CommandPalette, KeyboardShortcuts, ScrollToTop, TactileFirstVisitHint, ToastProvider } from "@/components/ui";
-import { SITE_URL } from "@/constants";
+import { SITE_NAME, SITE_URL } from "@/constants";
 import { CommandPaletteProvider } from "@/contexts";
 import { isLocale } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
@@ -54,13 +54,13 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
-    keywords: ["frontend developer", "React", "TypeScript", "web development"],
-    authors: [{ name: "Roman Frolov" }],
+    keywords: ["software engineer", "React", "TypeScript", "web development"],
+    authors: [{ name: SITE_NAME }],
     openGraph: {
       title: t("title"),
       description: t("description"),
       url: SITE_URL,
-      siteName: "Roman Frolov",
+      siteName: SITE_NAME,
       locale: locale === "de" ? "de_DE" : "en_US",
       type: "website",
     },
