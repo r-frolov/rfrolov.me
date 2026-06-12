@@ -28,6 +28,7 @@ type TAnimatedCardProps = {
   featured?: boolean;
   large?: boolean;
   internal?: boolean;
+  linkLabel?: string;
 };
 
 export function AnimatedCard({
@@ -38,6 +39,7 @@ export function AnimatedCard({
   featured = false,
   large = false,
   internal = false,
+  linkLabel,
 }: TAnimatedCardProps) {
   const prefersReducedMotion = useReducedMotion();
   const hydrated = useHydrated();
@@ -72,17 +74,32 @@ export function AnimatedCard({
     );
 
     if (href && internal) {
+      // Overlay link instead of wrapping children — cards may contain their own
+      // links (e.g. blog tags), and nested <a> elements are invalid HTML that
+      // break hydration. Rendered after children so it paints above
+      // stacking-context content (e.g. viewTransitionName titles); inner links
+      // opt out of the overlay via `relative z-10`.
+      const overlay = (
+        <Link
+          href={href as TLinkHref}
+          aria-label={linkLabel}
+          className="absolute inset-0"
+        />
+      );
+
       return (
         <div className={outerClasses}>
-          <Link href={href as TLinkHref}>
-            {hydrated && !prefersReducedMotion ? (
-              <m.div {...animation} className={cn(tactileBaseClasses, "cursor-pointer")}>
-                {children}
-              </m.div>
-            ) : (
-              <div className={cn(tactileBaseClasses, "cursor-pointer")}>{children}</div>
-            )}
-          </Link>
+          {hydrated && !prefersReducedMotion ? (
+            <m.div {...animation} className={cn(tactileBaseClasses, "relative cursor-pointer")}>
+              {children}
+              {overlay}
+            </m.div>
+          ) : (
+            <div className={cn(tactileBaseClasses, "relative cursor-pointer")}>
+              {children}
+              {overlay}
+            </div>
+          )}
         </div>
       );
     }
@@ -127,16 +144,25 @@ export function AnimatedCard({
 
   const inner = (() => {
     if (href && internal) {
-      return (
-        <Link href={href as TLinkHref}>
-          {hydrated && !prefersReducedMotion ? (
-            <m.div {...animation} className={cn(baseClasses, "cursor-pointer")}>
-              {children}
-            </m.div>
-          ) : (
-            <div className={cn(baseClasses, "cursor-pointer")}>{children}</div>
-          )}
-        </Link>
+      // Overlay link instead of wrapping children — see the tactile branch above.
+      const overlay = (
+        <Link
+          href={href as TLinkHref}
+          aria-label={linkLabel}
+          className="absolute inset-0"
+        />
+      );
+
+      return hydrated && !prefersReducedMotion ? (
+        <m.div {...animation} className={cn(baseClasses, "relative cursor-pointer")}>
+          {children}
+          {overlay}
+        </m.div>
+      ) : (
+        <div className={cn(baseClasses, "relative cursor-pointer")}>
+          {children}
+          {overlay}
+        </div>
       );
     }
 

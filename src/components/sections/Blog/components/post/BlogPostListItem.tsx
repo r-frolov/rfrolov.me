@@ -28,10 +28,12 @@ export const BlogPostListItem = memo(function BlogPostListItem({ post, index }: 
     <m.div
       {...getStaggeredAnimation(index, { y: 10, delayMultiplier: 0.05, duration: ANIMATION_DURATION.normal })}
     >
-      <Link
-        href={`/blog/${post.slug}` as "/blog"}
+      {/* Overlay link instead of wrapping the row — tags inside are links
+          themselves, and nested <a> elements are invalid HTML that break
+          hydration. Tag links opt out of the overlay via `relative z-10`. */}
+      <div
         className={cn(
-          "group flex items-center justify-between gap-4 py-4 border-b border-muted transition-colors",
+          "group relative flex items-center justify-between gap-4 py-4 border-b border-muted transition-colors",
           "hover:bg-muted/30 -mx-4 px-4 cursor-pointer"
         )}
       >
@@ -52,7 +54,13 @@ export const BlogPostListItem = memo(function BlogPostListItem({ post, index }: 
           </div>
           <ArrowRight className={cn(ICON_SIZE.sm, "text-muted-foreground", ARROW_HOVER.right)} />
         </div>
-      </Link>
+
+        <Link
+          href={`/blog/${post.slug}` as "/blog"}
+          aria-label={post.title}
+          className="absolute inset-0"
+        />
+      </div>
     </m.div>
   );
 });

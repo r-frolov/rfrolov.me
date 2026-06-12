@@ -18,7 +18,7 @@ export const BookCard = memo(function BookCard({ book, index }: TProps) {
   });
 
   return (
-    <AnimatedCard index={index} href={`/readings/${book.slug}`} internal>
+    <AnimatedCard index={index} href={`/readings/${book.slug}`} internal linkLabel={book.title}>
       <div className="flex gap-3">
         <BlurImage
           wrapperClassName="relative h-[72px] w-[48px] flex-shrink-0 rounded-sm"

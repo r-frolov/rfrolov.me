@@ -42,7 +42,13 @@ export function FeaturedProjects({ projects, projectsWithDetails = [] }: TProps)
                 : project.href || project.github;
 
               return (
-                <AnimatedCard key={project.id} index={index} href={href} internal={hasDetail}>
+                <AnimatedCard
+                  key={project.id}
+                  index={index}
+                  href={href}
+                  internal={hasDetail}
+                  linkLabel={project.title}
+                >
                   <div className="space-y-2">
                     <div className="flex items-start justify-between gap-2">
                       <div className="space-y-1">
