@@ -29,7 +29,7 @@ export function CVHeader() {
 
           <div className="flex flex-wrap gap-4 pt-1">
             <a
-              href="https://github.com/Lacsw"
+              href="https://github.com/r-frolov"
               {...EXTERNAL_LINK_PROPS}
               className={cn("inline-flex items-center gap-1.5 text-sm transition-colors duration-300", HOVER_TEXT_COLOR)}
             >

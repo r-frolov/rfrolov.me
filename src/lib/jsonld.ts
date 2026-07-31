@@ -9,7 +9,7 @@ export function generatePersonSchema() {
     url: SITE_URL,
     jobTitle: "Frontend Developer",
     sameAs: [
-      "https://github.com/Lacsw",
+      "https://github.com/r-frolov",
       "https://www.linkedin.com/in/r-frolov",
     ],
   };

@@ -13,8 +13,8 @@ export const openSourceProjects: TOpenSourceProject[] = [
     id: "rntly",
     name: "rntly",
     description: "Rental management application. Go REST API with PostgreSQL backend, React + TypeScript frontend. Handles properties, tenants, and lease contracts.",
-    url: "https://github.com/Lacsw/rntly",
-    repoUrl: "https://github.com/Lacsw/rntly",
+    url: "https://github.com/r-frolov/rntly",
+    repoUrl: "https://github.com/r-frolov/rntly",
     tech: "Go · PostgreSQL · React · TypeScript",
   },
 ];

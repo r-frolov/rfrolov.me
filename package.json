@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lacsw/rfrolov.me.git"
+    "url": "git+https://github.com/r-frolov/rfrolov.me.git"
   },
   "dependencies": {
     "@cronitorio/cronitor-rum-nextjs": "^0.5.1",
