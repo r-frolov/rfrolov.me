@@ -8,12 +8,7 @@ import { getBooks } from "@/lib/readings";
 
 export const dynamic = "force-static";
 
-// Build the { en: url, de: url, x-default: url } map for a localized path so
-// the sitemap can declare hreflang alternates — Google needs these to
-// understand that /en/blog/foo and /de/blog/foo are the same page in different
-// languages. Only locales that actually have the page are listed: several blog
-// posts are English-only, and pointing hreflang at a URL that 404s is worse
-// than declaring no alternate at all.
+// Only locales that actually have the page — hreflang to a 404 is worse than none.
 function languageAlternates(
   path: string,
   availableLocales: readonly TLocale[] = locales
@@ -26,9 +21,7 @@ function languageAlternates(
     availableLocales.map((locale) => [locale, `${SITE_URL}/${locale}${path}`])
   );
 
-  const fallback = availableLocales.includes(defaultLocale)
-    ? defaultLocale
-    : availableLocales[0];
+  const fallback = availableLocales.includes(defaultLocale) ? defaultLocale : availableLocales[0];
 
   return { ...alternates, "x-default": `${SITE_URL}/${fallback}${path}` };
 }
@@ -50,8 +43,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
   const books = getBooks();
 
-  // lastModified is derived from the content each page renders rather than a
-  // hand-maintained constant, which had gone stale by over a year.
   const postDates = locales.flatMap((locale) =>
     (postsByLocale.get(locale) ?? []).map((post) => new Date(post.date))
   );
@@ -101,8 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Tag pages are generated per locale from that locale's posts, so a tag can
-  // exist in English and not in German.
+  // Tags are per locale: a tag can exist in English and not in German.
   const tagsByLocale = new Map(
     locales.map((locale) => {
       const tags = new Map<string, Date>();
@@ -163,8 +153,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Every book gets a page, including the one currently being read — the
-  // sitemap used to list only finished ones, leaving live pages undeclared.
   const readingUrls = locales.flatMap((locale) =>
     books.map((book) => ({
       url: `${SITE_URL}/${locale}/readings/${book.slug}`,
@@ -175,12 +163,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [
-    ...staticUrls,
-    ...blogUrls,
-    ...tagIndexUrls,
-    ...tagUrls,
-    ...projectUrls,
-    ...readingUrls,
-  ];
+  return [...staticUrls, ...blogUrls, ...tagIndexUrls, ...tagUrls, ...projectUrls, ...readingUrls];
 }

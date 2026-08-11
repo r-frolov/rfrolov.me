@@ -31,10 +31,7 @@ type TOgFont = {
 
 let cachedFonts: TOgFont[] | null = null;
 
-// Satori has no font of its own beyond the sans-serif Next.js injects, so a
-// bare `fontFamily: "JetBrains Mono"` silently falls back and the cards render
-// in the wrong typeface. The face has to be handed to ImageResponse
-// explicitly. Read once and cached — every OG route needs the same buffer.
+// Satori falls back to its default sans unless the face is passed explicitly.
 export function loadOgFonts(): TOgFont[] {
   if (!cachedFonts) {
     cachedFonts = [
@@ -93,8 +90,6 @@ export function truncateText(text: string, maxLength: number): string {
   return text.slice(0, maxLength - 3).trim() + "...";
 }
 
-// Every OG route renders at the same size with the same font, so they all pass
-// this as the ImageResponse options object.
 export function ogImageOptions() {
   return { ...OG_SIZE, fonts: loadOgFonts() };
 }

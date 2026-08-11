@@ -16,7 +16,6 @@ export { fileExists, getMDXFiles, parseMDXFile } from "./content";
 export { formatDate } from "./date";
 export { extractTextFromChildren, getTextContent } from "./extract-text";
 export { useDebounce } from "./hooks";
-export { default as imageLoader } from "./imageLoader";
 export {
   generateBlogPostSchema,
   generateBreadcrumbSchema,
@@ -47,4 +46,4 @@ export {
   hasProjectDetail,
 } from "./projects";
 export { getTagUrl } from "./urls";
-export { cn, getImagePath, slugify } from "./utils";
+export { cn, slugify } from "./utils";
