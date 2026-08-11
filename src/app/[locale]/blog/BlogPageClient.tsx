@@ -100,7 +100,7 @@ export function BlogPageClient({ posts, tags }: TProps) {
             view === "grid" ? (
               <div className="grid gap-4 md:grid-cols-2">
                 {filteredPosts.map((post, index) => (
-                  <BlogPostCard key={post.slug} index={index} post={post} />
+                  <BlogPostCard key={post.slug} index={index} post={post} headingLevel={2} />
                 ))}
               </div>
             ) : (

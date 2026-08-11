@@ -42,7 +42,7 @@ export const ProjectCard = memo(function ProjectCard({
                 )}
                 <CategoryWithYear category={project.category} year={project.year} />
               </div>
-              <h3 className={cn("font-medium", large && "text-lg")}>{project.title}</h3>
+              <h2 className={cn("font-medium", large && "text-lg")}>{project.title}</h2>
             </div>
           </div>
 
