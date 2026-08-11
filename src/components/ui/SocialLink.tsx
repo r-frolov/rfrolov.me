@@ -34,7 +34,12 @@ export function SocialLink({ name, href, icon: Icon, className }: TSocialLinkPro
     <m.a
       href={href}
       {...EXTERNAL_LINK_PROPS}
-      className={cn(HOVER_TEXT_COLOR, "inline-block transition-colors duration-300", className)}
+      // -m-2/p-2 grows the 20px icon to a 36px target without shifting the row.
+      className={cn(
+        HOVER_TEXT_COLOR,
+        "-m-2 inline-block p-2 transition-colors duration-300",
+        className
+      )}
       aria-label={name}
       whileHover={
         prefersReducedMotion
