@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
+/* next-themes toggles a `.dark` class, so the `dark:` variant has to follow the
+   class rather than the OS preference. In v4 this lives in CSS — a
+   `darkMode: "class"` key in a JS config is never read. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
+  --font-mono: var(--font-jetbrains-mono), monospace;
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-muted: hsl(var(--muted));
