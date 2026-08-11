@@ -34,10 +34,12 @@ export function TiltCard({ children, maxTilt = 8, className }: TTiltCardProps) {
   const smoothShadowX = useSpring(shadowX, springConfig);
   const smoothShadowY = useSpring(shadowY, springConfig);
 
+  const shadowStrength = useSpring(0, springConfig);
+
   const boxShadow = useTransform(
-    [smoothShadowX, smoothShadowY],
-    ([x, y]: number[]) =>
-      `${x}px ${y}px 32px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.05)`
+    [smoothShadowX, smoothShadowY, shadowStrength],
+    ([x, y, strength]: number[]) =>
+      `${x}px ${y}px 32px rgba(0, 0, 0, ${0.18 * strength}), 0 1px 2px rgba(0, 0, 0, ${0.05 * strength})`
   );
 
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
@@ -45,11 +47,13 @@ export function TiltCard({ children, maxTilt = 8, className }: TTiltCardProps) {
     const rect = ref.current.getBoundingClientRect();
     mouseX.set((event.clientX - rect.left) / rect.width);
     mouseY.set((event.clientY - rect.top) / rect.height);
+    shadowStrength.set(1);
   }
 
   function handleMouseLeave() {
     mouseX.set(0.5);
     mouseY.set(0.5);
+    shadowStrength.set(0);
   }
 
   // Pre-hydration + reduced-motion both bypass the m.div wrapper so
