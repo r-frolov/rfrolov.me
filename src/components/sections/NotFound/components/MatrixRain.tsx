@@ -2,9 +2,21 @@
 
 import { useEffect, useRef } from "react";
 
+import { useTheme } from "next-themes";
+
 import { useReducedMotion } from "@/hooks";
 
 const CHARS = "アイウエオカキクケコサシスセソタチツテトナ01</>={};".split("");
+
+// The canvas cannot inherit a Tailwind class, so it reads the same tokens the
+// stylesheet does and rebuilds its colors whenever the theme flips.
+function token(name: string, alpha: number) {
+  const channels = getComputedStyle(document.documentElement)
+    .getPropertyValue(name)
+    .trim();
+
+  return `hsl(${channels} / ${alpha})`;
+}
 
 type TDrop = {
   x: number;
@@ -17,6 +29,7 @@ type TDrop = {
 export function MatrixRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     if (prefersReducedMotion) return;
@@ -53,10 +66,13 @@ export function MatrixRain() {
 
     resize();
 
+    const fadeColor = token("--background", 0.08);
+    const glyphColor = token("--muted-foreground", 0.35);
+
     function draw() {
       if (!ctx) return;
       // Fade existing content
-      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillStyle = fadeColor;
       ctx.fillRect(0, 0, width, height);
 
       ctx.font = `${fontSize}px monospace`;
@@ -67,7 +83,7 @@ export function MatrixRain() {
           drop.char = CHARS[Math.floor(Math.random() * CHARS.length)];
         }
 
-        ctx.fillStyle = "rgba(120, 120, 120, 0.35)";
+        ctx.fillStyle = glyphColor;
         ctx.fillText(drop.char, drop.x, drop.y);
 
         drop.y += drop.speed * fontSize * 0.1;
@@ -88,7 +104,7 @@ export function MatrixRain() {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
     };
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, resolvedTheme]);
 
   if (prefersReducedMotion) return null;
 
