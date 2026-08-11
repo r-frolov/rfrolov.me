@@ -104,7 +104,7 @@ export default async function LocaleLayout({ children, params }: TProps) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "common" });
-  const blogPosts = getAllPosts(locale);
+  const blogPosts = getAllPosts(locale).map(({ slug, title }) => ({ slug, title }));
 
   return (
     <html lang={locale} className={jetbrainsMono.variable} suppressHydrationWarning>

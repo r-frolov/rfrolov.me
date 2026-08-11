@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useMemo, useState } from "react";
 
 type TCommandPaletteContextValue = {
   isOpen: boolean;
@@ -52,9 +52,12 @@ export function CommandPaletteProvider({ children }: TProps) {
     };
   }, [isOpen]);
 
+  const value = useMemo(
+    () => ({ isOpen, open, close, toggle }),
+    [isOpen, open, close, toggle]
+  );
+
   return (
-    <CommandPaletteContext.Provider value={{ isOpen, open, close, toggle }}>
-      {children}
-    </CommandPaletteContext.Provider>
+    <CommandPaletteContext.Provider value={value}>{children}</CommandPaletteContext.Provider>
   );
 }
