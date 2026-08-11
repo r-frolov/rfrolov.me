@@ -5,7 +5,6 @@ import Image from "next/image";
 import { m } from "framer-motion";
 
 import { useReducedMotion } from "@/hooks";
-import { getImagePath } from "@/lib/utils";
 
 import { ANIMATION_CONFIG } from "../../constants";
 
@@ -30,7 +29,7 @@ export function FloatingImage() {
     >
       <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl ring-4 ring-background">
         <Image
-          src={getImagePath("/images/hero.webp")}
+          src="/images/hero.webp"
           alt="Roman Frolov"
           fill
           priority
