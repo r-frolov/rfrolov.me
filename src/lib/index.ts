@@ -28,12 +28,14 @@ export {
 export { rehypePrettyCodeOptions } from "./mdx";
 export {
   createNotFoundOgImage,
+  loadOgFonts,
   OG_COLORS,
   OG_FONTS,
   OG_SIZE,
   ogBaseStyles,
   ogCenteredStyles,
   ogContentStyles,
+  ogImageOptions,
   ogTagStyles,
   truncateText,
 } from "./og";
