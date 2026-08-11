@@ -20,7 +20,7 @@ export function NavigationLinks() {
           href={route.path}
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-border hover:bg-muted/50 hover:border-foreground/20 transition-colors"
         >
-          <span className="text-green-500">→</span>
+          <span className="text-green-700 dark:text-green-400">→</span>
           <span>cd {route.path}</span>
           <span className="text-muted-foreground">({t(route.labelKey)})</span>
         </Link>

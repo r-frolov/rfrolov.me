@@ -34,7 +34,7 @@ export default function Error({ error, reset }: TErrorProps) {
           </div>
 
           <div className="p-6 font-mono text-sm space-y-4">
-            <div className="flex items-center gap-3 text-red-500">
+            <div className="flex items-center gap-3 text-red-700 dark:text-red-400">
               <AlertCircle className="h-6 w-6 shrink-0" />
               <span className="font-semibold">{t("title")}</span>
             </div>
