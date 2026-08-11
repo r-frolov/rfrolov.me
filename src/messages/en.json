@@ -57,6 +57,7 @@
     "title": "Experience",
     "showMore": "Show {count} more",
     "showLess": "Show less",
+    "highlights": "Key achievements",
     "present": "Present",
     "careerSummary": "<years></years>+ years across <roles></roles> roles"
   },

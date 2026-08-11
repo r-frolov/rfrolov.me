@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { AnimatePresence, m } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { TechTags } from "@/components/ui";
 import { useTactileSurface } from "@/hooks";
@@ -25,6 +26,8 @@ export function ExperienceCard({ experience, isLast }: TExperienceCardProps) {
   const hasHighlights = experience.highlights && experience.highlights.length > 0;
   const [isExpanded, setIsExpanded] = useState(false);
   const isTactile = useTactileSurface("experience-toggle");
+  const t = useTranslations("experience");
+  const toggleLabel = isExpanded ? t("showLess") : t("highlights");
 
   return (
     <m.div
@@ -91,7 +94,7 @@ export function ExperienceCard({ experience, isLast }: TExperienceCardProps) {
                       isExpanded && "rotate-180"
                     )}
                   />
-                  {isExpanded ? "Less" : "Key achievements"}
+                  {toggleLabel}
                 </span>
               ) : (
                 <>
@@ -101,7 +104,7 @@ export function ExperienceCard({ experience, isLast }: TExperienceCardProps) {
                       isExpanded && "rotate-180"
                     )}
                   />
-                  <span>{isExpanded ? "Less" : "Key achievements"}</span>
+                  <span>{toggleLabel}</span>
                 </>
               )}
             </button>
