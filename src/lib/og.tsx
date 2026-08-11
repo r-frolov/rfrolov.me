@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 import { ImageResponse } from "next/og";
 
 export const OG_SIZE = {
@@ -14,8 +17,38 @@ export const OG_COLORS = {
 } as const;
 
 export const OG_FONTS = {
-  mono: "monospace",
+  mono: "JetBrains Mono",
 } as const;
+
+const FONT_PATH = path.join(process.cwd(), "public/fonts/JetBrainsMono-Regular.ttf");
+
+type TOgFont = {
+  name: string;
+  data: Buffer;
+  weight: 400;
+  style: "normal";
+};
+
+let cachedFonts: TOgFont[] | null = null;
+
+// Satori has no font of its own beyond the sans-serif Next.js injects, so a
+// bare `fontFamily: "JetBrains Mono"` silently falls back and the cards render
+// in the wrong typeface. The face has to be handed to ImageResponse
+// explicitly. Read once and cached — every OG route needs the same buffer.
+export function loadOgFonts(): TOgFont[] {
+  if (!cachedFonts) {
+    cachedFonts = [
+      {
+        name: OG_FONTS.mono,
+        data: fs.readFileSync(FONT_PATH),
+        weight: 400,
+        style: "normal",
+      },
+    ];
+  }
+
+  return cachedFonts;
+}
 
 type TOgBaseStyles = {
   height: string;
@@ -60,11 +93,17 @@ export function truncateText(text: string, maxLength: number): string {
   return text.slice(0, maxLength - 3).trim() + "...";
 }
 
+// Every OG route renders at the same size with the same font, so they all pass
+// this as the ImageResponse options object.
+export function ogImageOptions() {
+  return { ...OG_SIZE, fonts: loadOgFonts() };
+}
+
 export function createNotFoundOgImage(message: string): ImageResponse {
   return new ImageResponse(
     <div style={ogCenteredStyles}>
       <span style={{ fontSize: 48 }}>{message}</span>
     </div>,
-    { ...OG_SIZE }
+    ogImageOptions()
   );
 }

@@ -7,7 +7,9 @@ import {
   OG_COLORS,
   OG_SIZE,
   ogContentStyles,
+  ogImageOptions,
   ogTagStyles,
+  truncateText,
 } from "@/lib/og";
 
 export const dynamic = "force-static";
@@ -61,25 +63,23 @@ export default async function Image({ params }: TProps) {
         </div>
         <h1
           style={{
-            fontSize: 64,
+            fontSize: 52,
             fontWeight: 600,
             lineHeight: 1.2,
             marginTop: 24,
-            maxWidth: "90%",
           }}
         >
-          {post.title}
+          {truncateText(post.title, 90)}
         </h1>
         <p
           style={{
-            fontSize: 28,
+            fontSize: 24,
             color: OG_COLORS.muted,
             marginTop: 16,
-            maxWidth: "80%",
             lineHeight: 1.4,
           }}
         >
-          {post.description}
+          {truncateText(post.description, 140)}
         </p>
       </div>
       <div
@@ -97,6 +97,6 @@ export default async function Image({ params }: TProps) {
         </span>
       </div>
     </div>,
-    { ...size }
+    ogImageOptions()
   );
 }

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 import { locales } from "@/i18n/config";
-import { OG_COLORS, OG_SIZE, ogBaseStyles, ogTagStyles } from "@/lib/og";
+import { OG_COLORS, OG_SIZE, ogBaseStyles, ogImageOptions, ogTagStyles } from "@/lib/og";
 
 export const dynamic = "force-static";
 
@@ -74,6 +74,6 @@ export default function Image() {
         rfrolov.me
       </p>
     </div>,
-    { ...size }
+    ogImageOptions()
   );
 }
