@@ -6,9 +6,17 @@ import { Container, SocialLink, TactileModeToggle } from "@/components/ui";
 import { socialLinks } from "@/data/social-links";
 import { Link } from "@/i18n/routing";
 
-export function Footer() {
+type TFooterProps = {
+  /**
+   * Resolved by the server layout. Reading the clock during a client render
+   * disagrees with the year frozen into the static export, which React treats
+   * as a hydration mismatch once the year rolls over.
+   */
+  year: number;
+};
+
+export function Footer({ year }: TFooterProps) {
   const t = useTranslations("footer");
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-border py-8">
@@ -22,7 +30,7 @@ export function Footer() {
               RF
             </Link>
             <p className="text-sm text-muted-foreground">
-              {t("copyright", { year: currentYear })}
+              {t("copyright", { year })}
             </p>
           </div>
 
