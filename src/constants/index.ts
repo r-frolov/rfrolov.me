@@ -11,7 +11,7 @@ export {
   SPRING_TRANSITION,
   TOAST_DURATION_MS,
 } from "./animations";
-export { CATEGORY_COLORS, CATEGORY_KEYS } from "./categories";
+export { CATEGORY_KEYS } from "./categories";
 export { CAREER_START, getCareerYears } from "./dates";
 export { IS_PRODUCTION } from "./env";
 export { CONTENT_PATHS } from "./paths";

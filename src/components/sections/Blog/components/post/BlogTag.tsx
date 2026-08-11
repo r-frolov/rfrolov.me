@@ -6,8 +6,6 @@ import { Link } from "@/i18n/routing";
 import { getTagUrl } from "@/lib/urls";
 import { cn } from "@/lib/utils";
 
-import { getTagColor } from "../../constants";
-
 type TProps = {
   tag: string;
   size?: "sm" | "md";
@@ -15,8 +13,6 @@ type TProps = {
 };
 
 export function BlogTag({ tag, size = "md", insideCard = false }: TProps) {
-  const colorClass = getTagColor(tag);
-
   if (insideCard) {
     return (
       <Link
@@ -24,18 +20,14 @@ export function BlogTag({ tag, size = "md", insideCard = false }: TProps) {
         onClick={(e) => e.stopPropagation()}
         className={cn("relative z-10", HOVER_OPACITY)}
       >
-        <Tag size={size} variant="colored" colorClass={colorClass}>
-          {tag}
-        </Tag>
+        <Tag size={size}>{tag}</Tag>
       </Link>
     );
   }
 
   return (
     <Link href={getTagUrl(tag) as "/blog"} className={HOVER_OPACITY}>
-      <Tag size={size} variant="colored" colorClass={colorClass}>
-        {tag}
-      </Tag>
+      <Tag size={size}>{tag}</Tag>
     </Link>
   );
 }

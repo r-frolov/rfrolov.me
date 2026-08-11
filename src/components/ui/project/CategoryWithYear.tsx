@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 
 import { Tag } from "@/components/ui/Tag";
-import { CATEGORY_COLORS } from "@/constants";
 import { TProjectCategory } from "@/types";
 
 type TCategoryWithYearProps = {
@@ -15,9 +14,7 @@ export function CategoryWithYear({ category, year, size = "md" }: TCategoryWithY
 
   return (
     <div className="flex items-center gap-2">
-      <Tag size={size} variant="colored" colorClass={CATEGORY_COLORS[category]}>
-        {t(category)}
-      </Tag>
+      <Tag size={size}>{t(category)}</Tag>
       <span className="text-xs text-muted-foreground">{year}</span>
     </div>
   );
