@@ -1,4 +1,7 @@
-import { TBlogPostMeta } from "@/types";
+export type TCommandPalettePost = {
+  slug: string;
+  title: string;
+};
 
 export type TCommand = {
   id: string;
@@ -11,5 +14,5 @@ export type TCommand = {
 };
 
 export type TCommandPaletteProps = {
-  blogPosts?: TBlogPostMeta[];
+  blogPosts?: TCommandPalettePost[];
 };
