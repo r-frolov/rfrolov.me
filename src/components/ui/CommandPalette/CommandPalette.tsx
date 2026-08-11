@@ -17,6 +17,8 @@ import {
 } from "./hooks";
 import { TCommandPaletteProps } from "./types";
 
+const LIST_ID = "command-palette-list";
+
 export function CommandPalette({ blogPosts = [] }: TCommandPaletteProps) {
   const t = useTranslations();
   const hydrated = useHydrated();
@@ -127,9 +129,19 @@ export function CommandPalette({ blogPosts = [] }: TCommandPaletteProps) {
                 query={query}
                 onQueryChange={setQuery}
                 onClose={close}
+                listId={LIST_ID}
+                activeDescendantId={
+                  flatCommands.length > 0 ? `command-option-${selectedIndex}` : undefined
+                }
               />
 
-              <ul ref={listRef} role="menu" className="max-h-80 overflow-y-auto p-2">
+              <ul
+                ref={listRef}
+                id={LIST_ID}
+                role="listbox"
+                aria-label={t("commandPalette.title")}
+                className="max-h-80 overflow-y-auto p-2"
+              >
                 {flatCommands.length === 0 ? (
                   <li className="px-4 py-8 text-center text-sm text-muted-foreground">
                     {t("commandPalette.noResults")}
