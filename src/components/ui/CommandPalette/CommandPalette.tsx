@@ -6,7 +6,7 @@ import { AnimatePresence, m } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { ANIMATION_DURATION } from "@/constants";
-import { useCommandPalette, useHydrated, useReducedMotion } from "@/hooks";
+import { useCommandPalette, useFocusTrap, useHydrated, useReducedMotion } from "@/hooks";
 
 import { CommandFooter, CommandGroup, CommandSearchInput, CommandShortcutHints } from "./components";
 import {
@@ -27,6 +27,9 @@ export function CommandPalette({ blogPosts = [] }: TCommandPaletteProps) {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(isOpen, dialogRef);
 
   const { recentIds, recordCommand } = useRecentCommands();
   const shortcutCommands = commands.filter((cmd) => cmd.shortcut);
@@ -104,6 +107,7 @@ export function CommandPalette({ blogPosts = [] }: TCommandPaletteProps) {
           />
 
           <m.div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label={t("commandPalette.title")}

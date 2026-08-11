@@ -1,4 +1,5 @@
 export { useCommandPalette } from "./useCommandPalette";
+export { useFocusTrap } from "./useFocusTrap";
 export { useHydrated } from "./useHydrated";
 export { useMagnetic } from "./useMagnetic";
 export { useMediaQuery } from "./useMediaQuery";
