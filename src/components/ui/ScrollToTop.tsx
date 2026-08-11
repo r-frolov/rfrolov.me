@@ -56,7 +56,7 @@ export function ScrollToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.6, y: 20 }}
           whileHover={prefersReducedMotion || tactile ? undefined : { scale: 1.1 }}
-          whileTap={prefersReducedMotion || tactile ? undefined : { scale: 0.9 }}
+          whileTap={prefersReducedMotion || tactile ? undefined : { scale: 0.96 }}
           transition={prefersReducedMotion ? { duration: 0 } : SPRING_TRANSITION}
           onClick={scrollToTop}
           className={cn(

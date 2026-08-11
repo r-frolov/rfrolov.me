@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 
+import { PRESS_SCALE } from "@/constants";
 import { useTactileSurface } from "@/hooks";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +37,8 @@ export function LinkButton({ href, variant = "solid", children, className }: TLi
     <ExternalLink
       href={href}
       className={cn(
-        "inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md hover:opacity-80 transition-opacity cursor-pointer",
+        "inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md hover:opacity-80 transition-[opacity,scale] duration-200 cursor-pointer",
+        PRESS_SCALE,
         variant === "solid"
           ? "bg-foreground text-background"
           : "border border-muted-foreground/30 text-foreground",
