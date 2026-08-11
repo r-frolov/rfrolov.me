@@ -19,7 +19,7 @@ export function ReadingProgress({ showPercentage = false }: TReadingProgressProp
         <div
           className={cn(
             "h-full transition-[width,background-color] duration-150 ease-out",
-            isComplete ? "bg-green-500" : "bg-foreground"
+            isComplete ? "bg-accent" : "bg-foreground"
           )}
           style={{ width: `${progress}%` }}
         />
