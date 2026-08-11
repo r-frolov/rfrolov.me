@@ -136,7 +136,7 @@ export default async function LocaleLayout({ children, params }: TProps) {
                   <KeyboardShortcuts />
                   <TactileFirstVisitHint />
                   <div id="main-content">{children}</div>
-                  <Footer />
+                  <Footer year={new Date().getFullYear()} />
                   <ScrollToTop />
                 </ToastProvider>
               </TactileProvider>
