@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 export function usePersistedState<T>(
   key: string,
   defaultValue: T
-): [T, (value: T | ((prev: T) => T)) => void] {
+): [T, Dispatch<SetStateAction<T>>] {
   const [state, setState] = useState<T>(defaultValue);
   const [isHydrated, setIsHydrated] = useState(false);
 
@@ -23,23 +23,16 @@ export function usePersistedState<T>(
     setIsHydrated(true);
   }, [key]);
 
-  const setPersistedState = useCallback(
-    (value: T | ((prev: T) => T)) => {
-      setState((prev) => {
-        const nextValue = typeof value === "function" ? (value as (prev: T) => T)(prev) : value;
+  useEffect(() => {
+    if (!isHydrated) return;
 
-        try {
-          localStorage.setItem(key, JSON.stringify(nextValue));
-        } catch {
-          // Ignore errors (quota exceeded, etc.)
-        }
-
-        return nextValue;
-      });
-    },
-    [key]
-  );
+    try {
+      localStorage.setItem(key, JSON.stringify(state));
+    } catch {
+      // Ignore errors (quota exceeded, etc.)
+    }
+  }, [key, state, isHydrated]);
 
   // Return default value before hydration to avoid flash
-  return [isHydrated ? state : defaultValue, setPersistedState];
+  return [isHydrated ? state : defaultValue, setState];
 }
