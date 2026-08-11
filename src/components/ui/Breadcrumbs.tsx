@@ -45,7 +45,7 @@ export function Breadcrumbs({ items }: TProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className={cn(HOVER_TEXT_COLOR, TRANSITION.normal, "cursor-pointer")}
+                  className={cn(HOVER_TEXT_COLOR, "transition-colors", TRANSITION.normal, "cursor-pointer")}
                 >
                   {item.label}
                 </Link>

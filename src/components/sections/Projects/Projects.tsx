@@ -54,7 +54,7 @@ export function Projects({ projects, projectsWithDetails = [] }: TProps) {
                     key={key}
                     onClick={() => setFilter(key)}
                     className={cn(
-                      "text-xs px-3 py-2 rounded-full cursor-pointer transition-all",
+                      "text-xs px-3 py-2 rounded-full cursor-pointer transition-colors",
                       filter === key
                         ? "bg-foreground text-background"
                         : "bg-muted text-muted-foreground hover:opacity-70"

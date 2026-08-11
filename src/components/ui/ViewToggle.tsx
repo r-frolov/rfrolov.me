@@ -46,7 +46,7 @@ export function ViewToggle({ view, onViewChange }: TViewToggleProps) {
   // Legacy branch — current code, untouched.
   const getButtonClassName = (isActive: boolean) =>
     cn(
-      "p-2.5 rounded transition-all cursor-pointer",
+      "p-2.5 rounded transition-[background-color,color,box-shadow] cursor-pointer",
       isActive ? "bg-background text-foreground shadow-sm" : HOVER_TEXT_COLOR
     );
 

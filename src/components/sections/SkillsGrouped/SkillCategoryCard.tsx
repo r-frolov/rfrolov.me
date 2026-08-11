@@ -33,7 +33,7 @@ export function SkillCategoryCard({ category, label }: TProps) {
           >
             <TechIcon
               slug={skill.icon}
-              className="h-3.5 w-3.5 [color:var(--skill-color)] opacity-60 group-hover:opacity-100 transition-all duration-200"
+              className="h-3.5 w-3.5 [color:var(--skill-color)] opacity-60 group-hover:opacity-100 transition-opacity duration-200"
             />
             <span className="text-xs transition-colors duration-200 group-hover:[color:var(--skill-color)]">
               {skill.name}

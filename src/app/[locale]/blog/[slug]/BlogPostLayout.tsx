@@ -68,13 +68,13 @@ export function BlogPostLayout({
                 </div>
 
                 <h1
-                  className="text-3xl font-semibold tracking-tight"
+                  className="text-3xl font-semibold tracking-tight text-balance"
                   style={{ viewTransitionName: `blog-title-${post.slug}` }}
                 >
                   {post.title}
                 </h1>
 
-                <p className="text-lg text-muted-foreground">{post.description}</p>
+                <p className="text-lg text-muted-foreground text-pretty">{post.description}</p>
 
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
