@@ -82,7 +82,12 @@ export function Navbar() {
         <Container>
           <nav className="flex items-center justify-between h-16">
             <MagneticLink strength={0.3} range={60}>
-              <Link href="/" aria-label={t("home")} className="font-semibold text-foreground">
+              <Link
+                href="/"
+                aria-label={t("home")}
+                // -m-3/p-3 grows the hit area to 43x45 without moving the mark.
+                className="-m-3 inline-block p-3 font-semibold text-foreground"
+              >
                 RF
               </Link>
             </MagneticLink>

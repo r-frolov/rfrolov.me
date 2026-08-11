@@ -25,7 +25,8 @@ export function Footer({ year }: TFooterProps) {
           <div className="flex flex-col items-center gap-2 sm:items-start">
             <Link
               href="/"
-              className="cursor-pointer font-semibold text-foreground hover:opacity-80 transition-opacity"
+              // -m-3/p-3 grows the hit area past the 24x24 floor without moving the mark.
+              className="-m-3 inline-block cursor-pointer p-3 font-semibold text-foreground transition-opacity hover:opacity-80"
             >
               RF
             </Link>
