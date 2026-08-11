@@ -1,5 +1,3 @@
-export const SITE_LAST_MODIFIED = new Date("2025-01-30");
-
 export const CAREER_START = new Date("2018-12-01");
 
 const MS_PER_YEAR = 365.25 * 24 * 60 * 60 * 1000;
