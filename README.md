@@ -143,3 +143,7 @@ a request at runtime. Two consequences worth knowing before changing code here:
 
 Next.js 16 · TypeScript · Tailwind CSS v4 · Framer Motion · next-intl ·
 next-mdx-remote · Shiki · Bun
+
+## License
+
+[MIT](LICENSE) © Roman Frolov
