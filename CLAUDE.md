@@ -4,35 +4,54 @@ This is Roman Frolov's personal portfolio website.
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 16 (App Router, `output: "export"` to static HTML)
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS v4
 - **Animations**: Framer Motion
+- **i18n**: next-intl, English and German, `localePrefix: "always"`
+- **Content**: MDX via next-mdx-remote
 - **Package Manager**: Bun
 - **Icons**: Lucide React, Simple Icons
 
 ## Commands
 
 ```bash
-bun install      # Install dependencies
-bun run dev      # Start dev server (http://localhost:3000)
-bun run build    # Production build
-bun run lint     # Run ESLint
+bun install        # Install dependencies
+bun run dev        # Start dev server (http://localhost:3000)
+bun run build      # Build and export to out/
+bun run lint       # Run ESLint
+bun run typecheck  # tsc --noEmit
 ```
+
+There is no `bun run start` — the build is a static export.
 
 ## Project Structure
 
 ```
 src/
-├── app/           # Next.js App Router pages
+├── app/           # App Router pages, nested under [locale]
 ├── components/
-│   ├── layout/    # Layout components (Navbar)
-│   ├── sections/  # Page sections (Hero, Skills, FeaturedProjects, Contact)
-│   └── ui/        # Reusable UI components (Card, Container, SocialLink, TechIcon)
-├── data/          # Static data (projects.ts, social-links.ts)
-├── lib/           # Utilities (cn function for class merging)
-└── types/         # TypeScript types (TProject, TSocialLink, TSkill)
+│   ├── layout/    # Navbar, Footer, MobileMenu, LanguageSwitcher
+│   ├── providers/ # Theme, motion, tactile, analytics providers
+│   ├── sections/  # Page sections (Hero, Blog, Projects, Experience, ...)
+│   ├── seo/       # JSON-LD
+│   └── ui/        # Reusable primitives
+├── constants/     # Routes, styles, animations, site identity
+├── content/       # MDX: blog posts, project details, book reflections
+├── data/          # Static data (projects/, experience/, education/, readings.ts)
+├── hooks/         # Shared React hooks
+├── i18n/          # Locale config and routing
+├── lib/           # Content loading, SEO, OG image helpers
+├── messages/      # UI translations (en.json, de.json)
+└── types/         # Shared TypeScript types
 ```
+
+## Static export constraints
+
+`output: "export"` means no middleware, no API routes, no server-side runtime.
+Anything that needs a request at runtime has to be done at build time or in the
+browser. Client components must not read the clock or other impure sources
+during render — compute in a server component and pass the value down.
 
 ## Code Conventions
 
