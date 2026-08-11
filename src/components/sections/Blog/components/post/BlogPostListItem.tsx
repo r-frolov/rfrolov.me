@@ -33,7 +33,7 @@ export const BlogPostListItem = memo(function BlogPostListItem({ post, index }: 
           hydration. Tag links opt out of the overlay via `relative z-10`. */}
       <div
         className={cn(
-          "group relative flex items-center justify-between gap-4 py-4 border-b border-muted transition-colors",
+          "group relative flex items-center justify-between gap-4 py-4 border-b border-border transition-colors",
           "hover:bg-muted/30 -mx-4 px-4 cursor-pointer"
         )}
       >

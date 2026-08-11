@@ -25,7 +25,7 @@ export function Tooltip({ label, children, className }: TTooltipProps) {
         role="tooltip"
         className={cn(
           "pointer-events-none absolute left-1/2 bottom-full z-10 mb-2 -translate-x-1/2 whitespace-nowrap",
-          "rounded-md border border-muted bg-background px-2 py-1 text-xs text-foreground shadow-md",
+          "rounded-md border border-border bg-background px-2 py-1 text-xs text-foreground shadow-md",
           "opacity-0 transition-opacity duration-150",
           "group-hover:opacity-100"
         )}

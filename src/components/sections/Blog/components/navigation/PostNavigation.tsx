@@ -25,7 +25,7 @@ function NavLink({ post, direction, label }: TNavLinkProps) {
     <Link
       href={`/blog/${post.slug}` as "/blog"}
       className={cn(
-        "group flex flex-col gap-2 p-4 rounded-lg border border-muted hover:border-muted-foreground/30 transition-colors cursor-pointer",
+        "group flex flex-col gap-2 p-4 rounded-lg border border-border hover:border-muted-foreground/30 transition-colors cursor-pointer",
         isPrevious ? "items-start" : "items-end"
       )}
     >
@@ -62,7 +62,7 @@ export function PostNavigation({ previous, next }: TProps) {
   }
 
   return (
-    <nav className="mt-12 pt-8 border-t border-muted">
+    <nav className="mt-12 pt-8 border-t border-border">
       <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
         {previous && <NavLink post={previous} direction="previous" label={t("previous")} />}
         {next && <NavLink post={next} direction="next" label={t("next")} />}

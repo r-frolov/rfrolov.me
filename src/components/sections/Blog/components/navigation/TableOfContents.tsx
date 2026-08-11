@@ -42,7 +42,7 @@ export function TableOfContents({ headings }: TTableOfContentsProps) {
         />
       </div>
 
-      <ul className="border-l border-muted">
+      <ul className="border-l border-border">
         {headings.map(({ id, text, level }) => {
           const isActive = activeId === id;
 

@@ -102,7 +102,7 @@ export const mdxComponents = {
       />
     </ScrollReveal>
   ),
-  hr: () => <hr className="border-muted my-8" />,
+  hr: () => <hr className="border-border my-8" />,
   strong: ({ className, ...props }: ComponentPropsWithoutRef<"strong">) => (
     <strong className={cn("font-semibold text-foreground", className)} {...props} />
   ),
@@ -128,7 +128,7 @@ export const mdxComponents = {
   ),
   td: ({ className, ...props }: ComponentPropsWithoutRef<"td">) => (
     <td
-      className={cn("text-muted-foreground px-3 py-2 border-b border-muted", className)}
+      className={cn("text-muted-foreground px-3 py-2 border-b border-border", className)}
       {...props}
     />
   ),

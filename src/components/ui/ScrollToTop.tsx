@@ -62,7 +62,7 @@ export function ScrollToTop() {
           className={cn(
             "fixed bottom-6 right-6 z-40 group",
             "flex h-11 w-11 items-center justify-center",
-            "rounded-full border border-muted bg-background/90 backdrop-blur shadow-lg",
+            "rounded-full border border-border bg-background/90 backdrop-blur shadow-lg",
             "cursor-pointer transition-colors hover:bg-muted"
           )}
           aria-label={t("scrollToTop")}

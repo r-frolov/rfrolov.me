@@ -88,7 +88,7 @@ export function BlogPostLayout({
 
               {seriesInfo && <SeriesNavigation series={seriesInfo} />}
 
-              <hr className="border-muted mb-8" />
+              <hr className="border-border mb-8" />
 
               <div className="prose-custom">{children}</div>
 

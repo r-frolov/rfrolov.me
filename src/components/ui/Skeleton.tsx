@@ -10,7 +10,7 @@ export function Skeleton({ className }: TSkeletonProps) {
 
 export function CardSkeleton() {
   return (
-    <div className="rounded-xl border border-muted p-5 space-y-4">
+    <div className="rounded-xl border border-border p-5 space-y-4">
       <Skeleton className="h-4 w-3/4" />
       <Skeleton className="h-3 w-full" />
       <Skeleton className="h-3 w-5/6" />

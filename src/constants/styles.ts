@@ -8,7 +8,7 @@ export const CARD_HOVER = "hover:shadow-md hover:scale-[1.01]";
 
 export const CARD_BORDER = {
   featured: "border-muted-foreground/40 hover:border-muted-foreground/60",
-  default: "border-muted hover:border-muted-foreground/30",
+  default: "border-border hover:border-muted-foreground/30",
 } as const;
 
 export const ICON_SIZE = {
@@ -48,7 +48,7 @@ export const ARROW_HOVER = {
     "transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1.5",
 } as const;
 
-export const KBD_BASE = "rounded border border-muted bg-muted/50";
+export const KBD_BASE = "rounded border border-border bg-muted/50";
 
 export const EXTERNAL_LINK_PROPS = {
   target: "_blank",

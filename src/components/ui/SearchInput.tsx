@@ -78,7 +78,7 @@ export function SearchInput({
         onChange={handleChange}
         placeholder={placeholder}
         className={cn(
-          "w-full rounded-lg border border-muted bg-background py-2 pl-10 pr-10 text-sm",
+          "w-full rounded-lg border border-border-strong bg-background py-2 pl-10 pr-10 text-sm",
           "placeholder:text-muted-foreground",
           "focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background",
           "transition-shadow",
@@ -104,7 +104,7 @@ export function SearchInput({
           )}
         </button>
       ) : (
-        <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 select-none rounded border border-muted bg-muted px-1.5 text-xs text-muted-foreground sm:block">
+        <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 select-none rounded border border-border bg-muted px-1.5 text-xs text-muted-foreground sm:block">
           /
         </kbd>
       )}

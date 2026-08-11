@@ -23,7 +23,7 @@ export function CollapsibleCode({ title, children, defaultOpen = false }: TColla
   const isTactile = useTactileSurface("collapsible-code");
 
   return (
-    <div className="my-4 rounded-lg border border-muted overflow-hidden">
+    <div className="my-4 rounded-lg border border-border overflow-hidden">
       <div
         className={cn(
           "flex items-center justify-between px-4 py-3",
