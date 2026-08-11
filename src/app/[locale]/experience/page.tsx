@@ -9,7 +9,7 @@ import { Experience } from "@/components/sections/Experience";
 import { CVAbout, CVHeader, CVLanguages, CVOpenSource, CVTalks, ScrollDots } from "@/components/sections/Experience/components";
 import { SkillsGrouped } from "@/components/sections/SkillsGrouped";
 import { JsonLd } from "@/components/seo";
-import { SITE_URL } from "@/constants";
+import { getCareerYears, SITE_URL } from "@/constants";
 import { getEducation } from "@/data/education";
 import { getExperiences } from "@/data/experience";
 import { isLocale, locales } from "@/i18n/config";
@@ -70,7 +70,7 @@ export default async function ExperiencePage({ params }: TProps) {
       <ScrollDots items={navItems} />
       <CVAbout id="about" />
       <SkillsGrouped id="skills" />
-      <Experience experiences={experiences} id="experience" />
+      <Experience experiences={experiences} careerYears={getCareerYears()} id="experience" />
       <Education education={education} id="education" />
       <CVOpenSource id="open-source" />
       <CVTalks id="talks" />

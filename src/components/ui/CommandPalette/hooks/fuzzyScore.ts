@@ -42,6 +42,7 @@ export function fuzzyScore(text: string, query: string): number {
     }
 
     const prev = found === 0 ? " " : t[found - 1];
+
     if (prev === " " || prev === "-" || prev === "_" || prev === "/") {
       score += 4;
     }

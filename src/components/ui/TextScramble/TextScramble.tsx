@@ -19,6 +19,7 @@ export function TextScramble({ text, duration = 800, className }: TTextScrambleP
   useEffect(() => {
     if (prefersReducedMotion) {
       setDisplayText(text);
+
       return;
     }
 
@@ -35,10 +36,12 @@ export function TextScramble({ text, duration = 800, className }: TTextScrambleP
         .map((char, index) => {
           if (char === " ") return " ";
           if (frame >= resolveAt[index]) return char;
+
           return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
         })
         .join("");
       setDisplayText(next);
+
       if (frame >= totalFrames) {
         window.clearInterval(intervalId);
         setDisplayText(text);
