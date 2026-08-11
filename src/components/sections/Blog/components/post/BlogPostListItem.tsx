@@ -39,9 +39,9 @@ export const BlogPostListItem = memo(function BlogPostListItem({ post, index }: 
       >
         <div className="flex-1 min-w-0 space-y-1">
           <div className="flex items-center gap-3 flex-wrap">
-            <h3 className="font-medium truncate group-hover:text-foreground/80 transition-colors">
+            <h2 className="font-medium truncate group-hover:text-foreground/80 transition-colors">
               {post.title}
-            </h3>
+            </h2>
             <BlogTags tags={post.tags} limit={2} size="sm" insideCard />
           </div>
           <p className="text-sm text-muted-foreground line-clamp-1">{post.description}</p>

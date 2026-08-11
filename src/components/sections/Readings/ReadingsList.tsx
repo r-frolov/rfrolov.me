@@ -26,9 +26,9 @@ export function ReadingsList({ booksByYear, currentlyReading }: TProps) {
 
           {booksByYear.map(([year, books]) => (
             <div key={year} className="space-y-4">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
+              <h2 className="text-xs uppercase tracking-widest text-muted-foreground">
                 {year} · {t("books", { count: books.length })}
-              </p>
+              </h2>
               <div className="grid gap-4 md:grid-cols-2">
                 {books.map((book, index) => (
                   <BookCard key={book.slug} book={book} index={index} />

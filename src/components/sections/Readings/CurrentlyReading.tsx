@@ -18,9 +18,9 @@ export function CurrentlyReading({ book }: TProps) {
 
   return (
     <div>
-      <p className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
+      <h2 className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
         {t("currentlyReading")}
-      </p>
+      </h2>
       <Link href={`/readings/${book.slug}`}>
         <div
           className={cn(

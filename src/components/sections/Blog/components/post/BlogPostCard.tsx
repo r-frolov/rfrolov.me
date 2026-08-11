@@ -17,9 +17,19 @@ import { ReadingTime } from "./ReadingTime";
 type TBlogPostCardProps = {
   post: TBlogPostMeta;
   index: number;
+  /**
+   * 3 on the home page, where the grid sits under the "Latest posts" h2.
+   * 2 on /blog, where the page h1 is the only heading above it.
+   */
+  headingLevel?: 2 | 3;
 };
 
-export const BlogPostCard = memo(function BlogPostCard({ post, index }: TBlogPostCardProps) {
+export const BlogPostCard = memo(function BlogPostCard({
+  post,
+  index,
+  headingLevel = 3,
+}: TBlogPostCardProps) {
+  const Heading = `h${headingLevel}` as const;
   const locale = useLocale();
   const formattedDate = formatDate(post.date, { locale });
 
@@ -39,12 +49,12 @@ export const BlogPostCard = memo(function BlogPostCard({ post, index }: TBlogPos
               <span>·</span>
               <ReadingTime minutes={post.readingTime} showLabel />
             </div>
-            <h3
+            <Heading
               className="font-medium"
               style={{ viewTransitionName: `blog-title-${post.slug}` }}
             >
               {post.title}
-            </h3>
+            </Heading>
           </div>
           <ArrowUpRight
             className={cn(ICON_SIZE.sm, "shrink-0 text-muted-foreground", ARROW_HOVER.upRight)}
