@@ -58,7 +58,7 @@ export function BookDetail({ book, children }: TProps) {
 
           <p className="text-muted-foreground">{book.description}</p>
 
-          <hr className="border-muted" />
+          <hr className="border-border" />
 
           <div>
             <p className="mb-4 text-xs uppercase tracking-widest text-muted-foreground">

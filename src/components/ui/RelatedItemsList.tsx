@@ -33,7 +33,7 @@ function RelatedItemsListInner<T extends TRelatedItem>({
   }
 
   return (
-    <section className="mt-12 pt-8 border-t border-muted">
+    <section className="mt-12 pt-8 border-t border-border">
       <h2 className={cn(TEXT_SIZE.heading, "font-semibold tracking-tight mb-6")}>{title}</h2>
       <div className="space-y-4">
         {items.map((item) => (

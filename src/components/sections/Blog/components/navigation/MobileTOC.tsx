@@ -80,7 +80,7 @@ export function MobileTOC({ headings }: TMobileTOCProps) {
             className={cn(
               "fixed bottom-6 right-6 z-40 lg:hidden",
               "flex h-10 w-10 items-center justify-center",
-              "rounded-full border border-muted bg-background shadow-lg",
+              "rounded-full border border-border bg-background shadow-lg",
               "cursor-pointer transition-colors hover:bg-muted",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
             )}
@@ -111,7 +111,7 @@ export function MobileTOC({ headings }: TMobileTOCProps) {
               className={cn(
                 "fixed bottom-0 left-0 right-0 z-50 lg:hidden",
                 "max-h-[70vh] overflow-y-auto",
-                "rounded-t-2xl border-t border-muted bg-background p-6 shadow-lg"
+                "rounded-t-2xl border-t border-border bg-background p-6 shadow-lg"
               )}
               aria-label="Table of contents"
             >

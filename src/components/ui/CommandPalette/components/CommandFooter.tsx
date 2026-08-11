@@ -16,7 +16,7 @@ export function CommandFooter({ onClose }: TCommandFooterProps) {
   const isTactile = useTactileSurface("command-palette");
 
   return (
-    <div className="flex items-center justify-between border-t border-muted px-4 py-2">
+    <div className="flex items-center justify-between border-t border-border px-4 py-2">
       <div className="flex items-center gap-4 text-xs text-muted-foreground">
         <span className="flex items-center gap-1">
           <kbd className={cn(KBD_BASE, "px-1.5 py-0.5")}>↑↓</kbd>

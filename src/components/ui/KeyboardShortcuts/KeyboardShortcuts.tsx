@@ -92,8 +92,8 @@ export function KeyboardShortcuts() {
             transition={transition}
             className="fixed left-1/2 top-[20%] z-50 w-full max-w-md -translate-x-1/2 px-4"
           >
-            <div className="overflow-hidden rounded-lg border border-muted bg-background shadow-lg">
-              <div className="flex items-center justify-between border-b border-muted px-4 py-3">
+            <div className="overflow-hidden rounded-lg border border-border bg-background shadow-lg">
+              <div className="flex items-center justify-between border-b border-border px-4 py-3">
                 <h2 className="text-sm font-medium">{t("title")}</h2>
                 <button
                   onClick={() => setIsOpen(false)}

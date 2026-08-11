@@ -43,7 +43,7 @@ export function ProjectDetailLayout({ project, relatedProjects, headings, childr
           >
             <ProjectHero project={project} />
 
-            <hr className="border-muted" />
+            <hr className="border-border" />
 
             {children}
 

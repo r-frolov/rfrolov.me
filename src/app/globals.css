@@ -7,13 +7,21 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-border: hsl(var(--border));
+  --color-border-strong: hsl(var(--border-strong));
 }
 
+/* --border is the hairline for dividers and surface edges. --border-strong is
+   for boundaries that identify a control on their own (form fields); it stays
+   at or above 3:1 against --background in both themes, which is what WCAG
+   1.4.11 requires. --muted is a fill color — never use it as a border. */
 :root {
   --background: 0 0% 100%;
   --foreground: 0 0% 9%;
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 38%;
+  --border: 0 0% 88%;
+  --border-strong: 0 0% 57%;
   --accent: 215 60% 50%;
   --accent-foreground: 215 60% 40%;
 }
@@ -23,6 +31,8 @@
   --foreground: 0 0% 95%;
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 65%;
+  --border: 0 0% 24%;
+  --border-strong: 0 0% 42%;
   --accent: 215 50% 60%;
   --accent-foreground: 215 50% 70%;
 }

@@ -17,7 +17,7 @@ export function SeriesNavigation({ series }: TSeriesNavigationProps) {
   const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 
   return (
-    <div className="my-8 rounded-lg border border-muted bg-muted/30 p-4">
+    <div className="my-8 rounded-lg border border-border bg-muted/30 p-4">
       <div className="flex items-center gap-2 mb-3">
         <List className={cn(ICON_SIZE.sm, "text-muted-foreground")} aria-hidden="true" />
         <span className="text-sm font-medium">
@@ -33,7 +33,7 @@ export function SeriesNavigation({ series }: TSeriesNavigationProps) {
             className={cn(
               "flex-1 flex items-center gap-2 p-3 rounded-md",
               "bg-background hover:bg-muted/50 transition-colors cursor-pointer",
-              "border border-transparent hover:border-muted"
+              "border border-transparent hover:border-border"
             )}
           >
             <ChevronLeft className={cn(ICON_SIZE.sm, "text-muted-foreground shrink-0")} />
@@ -52,7 +52,7 @@ export function SeriesNavigation({ series }: TSeriesNavigationProps) {
             className={cn(
               "flex-1 flex items-center gap-2 p-3 rounded-md text-right",
               "bg-background hover:bg-muted/50 transition-colors cursor-pointer",
-              "border border-transparent hover:border-muted"
+              "border border-transparent hover:border-border"
             )}
           >
             <div className="min-w-0 flex-1">

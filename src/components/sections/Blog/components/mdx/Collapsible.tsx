@@ -19,7 +19,7 @@ export function Collapsible({ title, children, defaultOpen = false }: TCollapsib
   const isTactile = useTactileSurface("collapsible");
 
   return (
-    <div className="my-4 rounded-lg border border-muted overflow-hidden">
+    <div className="my-4 rounded-lg border border-border overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}

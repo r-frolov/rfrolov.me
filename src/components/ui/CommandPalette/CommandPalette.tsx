@@ -117,7 +117,7 @@ export function CommandPalette({ blogPosts = [] }: TCommandPaletteProps) {
             }
             className="fixed left-1/2 top-[20%] z-50 w-full max-w-lg -translate-x-1/2 px-4"
           >
-            <div className="overflow-hidden rounded-lg border border-muted bg-background shadow-lg">
+            <div className="overflow-hidden rounded-lg border border-border bg-background shadow-lg">
               <CommandSearchInput
                 inputRef={inputRef}
                 query={query}

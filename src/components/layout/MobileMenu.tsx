@@ -122,7 +122,7 @@ export function MobileMenu({ isOpen, onClose }: TMobileMenuProps) {
             animate="visible"
             exit="exit"
             variants={menuContainerVariants}
-            className="relative overflow-hidden bg-background border-b border-muted"
+            className="relative overflow-hidden bg-background border-b border-border"
           >
             <ul className="flex flex-col py-2">
               {NAV_LINKS.map((link) => {
@@ -163,7 +163,7 @@ export function MobileMenu({ isOpen, onClose }: TMobileMenuProps) {
               })}
 
               {/* Divider */}
-              <m.li variants={linkVariants} className="border-t border-muted my-2 mx-6" />
+              <m.li variants={linkVariants} className="border-t border-border my-2 mx-6" />
 
               {/* Controls */}
               <m.li variants={linkVariants} className="flex items-center gap-4 px-6 py-2">

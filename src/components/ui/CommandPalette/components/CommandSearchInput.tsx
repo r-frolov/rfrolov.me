@@ -26,7 +26,7 @@ export function CommandSearchInput({
   const isTactile = useTactileSurface("command-palette");
 
   return (
-    <div className="flex items-center gap-3 border-b border-muted px-4">
+    <div className="flex items-center gap-3 border-b border-border px-4">
       <Search className={cn(ICON_SIZE.sm, "text-muted-foreground")} />
       <input
         ref={inputRef}

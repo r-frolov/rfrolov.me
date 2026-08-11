@@ -69,7 +69,7 @@ export function AnimatedCard({
       "tactile-card",
       "rounded-lg border bg-background p-6",
       large && "md:col-span-2",
-      featured ? "border-foreground/20" : "border-muted",
+      featured ? "border-foreground/20" : "border-border",
       className
     );
 

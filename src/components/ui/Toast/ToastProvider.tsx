@@ -34,7 +34,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              className="flex items-center gap-2 rounded-lg border border-muted bg-background px-4 py-2 shadow-lg"
+              className="flex items-center gap-2 rounded-lg border border-border bg-background px-4 py-2 shadow-lg"
             >
               <Check className="h-4 w-4 text-green-500" />
               <span className="text-sm">{toast.message}</span>

@@ -16,8 +16,8 @@ export function CodeBlock({ children, className }: TCodeBlockProps) {
   const codeContent = getTextContent(children);
 
   return (
-    <div className="my-4 rounded-lg border border-muted overflow-hidden">
-      <div className="code-block-header flex items-center justify-end px-4 py-2 bg-muted/50 border-b border-muted">
+    <div className="my-4 rounded-lg border border-border overflow-hidden">
+      <div className="code-block-header flex items-center justify-end px-4 py-2 bg-muted/50 border-b border-border">
         <CopyButton text={codeContent} />
       </div>
       <div className="overflow-x-auto">
