@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 
 import { ThemeToggle } from "@/components/ui";
 import { HOVER_TEXT_COLOR, NAV_LINKS } from "@/constants";
-import { useTactileSurface } from "@/hooks";
+import { useFocusTrap, useTactileSurface } from "@/hooks";
 import { Link, usePathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
@@ -63,6 +63,10 @@ export function MobileMenu({ isOpen, onClose }: TMobileMenuProps) {
   const menuRef = useRef<HTMLElement>(null);
   const isTactileMenu = useTactileSurface("mobile-menu");
 
+  // Declared before the effect below so the trap records the hamburger as the
+  // element to restore, rather than the first menu link that effect focuses.
+  useFocusTrap(isOpen, menuRef);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -70,29 +74,9 @@ export function MobileMenu({ isOpen, onClose }: TMobileMenuProps) {
 
     if (!menu) return;
 
-    const focusableElements = menu.querySelectorAll<HTMLElement>(
-      'a[href], button, [tabindex]:not([tabindex="-1"])'
-    );
-    const firstEl = focusableElements[0];
-    const lastEl = focusableElements[focusableElements.length - 1];
-
-    firstEl?.focus();
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key !== "Tab") return;
-
-      if (e.shiftKey && document.activeElement === firstEl) {
-        e.preventDefault();
-        lastEl?.focus();
-      } else if (!e.shiftKey && document.activeElement === lastEl) {
-        e.preventDefault();
-        firstEl?.focus();
-      }
-    };
-
-    menu.addEventListener("keydown", handleKeyDown);
-
-    return () => menu.removeEventListener("keydown", handleKeyDown);
+    menu
+      .querySelector<HTMLElement>('a[href], button, [tabindex]:not([tabindex="-1"])')
+      ?.focus();
   }, [isOpen]);
 
   return (
