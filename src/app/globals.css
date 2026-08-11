@@ -43,6 +43,17 @@
   --accent-foreground: 215 50% 70%;
 }
 
+/* Pure black/white only — a tinted neutral picks up the surface behind it and
+   reads as dirt along the image edge. */
+@utility image-edge {
+  outline: 1px solid oklch(0 0 0 / 0.1);
+  outline-offset: -1px;
+
+  :where(.dark) & {
+    outline-color: oklch(1 0 0 / 0.1);
+  }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-y: scroll;
