@@ -49,7 +49,7 @@ export function ExperienceCard({ experience, isLast }: TExperienceCardProps) {
               alt={`${experience.company} logo`}
               width={16}
               height={16}
-              className="rounded-sm"
+              className="image-edge rounded-sm"
             />
           )}
           {experience.company} · {experience.location}

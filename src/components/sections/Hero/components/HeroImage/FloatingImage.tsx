@@ -27,7 +27,7 @@ export function FloatingImage() {
       }
       className="absolute inset-8 sm:inset-10 lg:inset-12"
     >
-      <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl ring-4 ring-background">
+      <div className="image-edge relative w-full h-full rounded-full overflow-hidden shadow-2xl ring-4 ring-background">
         <Image
           src="/images/hero.webp"
           alt="Roman Frolov"

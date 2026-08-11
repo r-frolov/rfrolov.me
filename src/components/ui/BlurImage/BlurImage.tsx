@@ -14,7 +14,7 @@ export function BlurImage({ className, wrapperClassName, ...props }: TBlurImageP
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className={cn("relative overflow-hidden bg-muted/50", wrapperClassName)}>
+    <div className={cn("image-edge relative overflow-hidden bg-muted/50", wrapperClassName)}>
       <div
         aria-hidden
         className={cn(
