@@ -6,6 +6,7 @@ export {
   mdxComponents,
   MobileTOC,
   PostNavigation,
+  ReadingTime,
   RelatedPosts,
   SeriesNavigation,
   TableOfContents,

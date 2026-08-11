@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+import { getTranslations } from "next-intl/server";
+
 import { isLocale, locales } from "@/i18n/config";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import {
@@ -43,6 +45,8 @@ export default async function Image({ params }: TProps) {
   if (!post) {
     return createNotFoundOgImage("Post not found");
   }
+
+  const t = await getTranslations({ locale, namespace: "blog.readingTime" });
 
   return new ImageResponse(
     <div style={ogContentStyles}>
@@ -93,7 +97,7 @@ export default async function Image({ params }: TProps) {
       >
         <span>rfrolov.me</span>
         <span>
-          {post.date} · {post.readingTime} min read
+          {post.date} · {t("minRead", { minutes: post.readingTime })}
         </span>
       </div>
     </div>,
