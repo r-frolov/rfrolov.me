@@ -33,6 +33,7 @@ export function HeroImage() {
     }
 
     window.addEventListener("mousemove", handleMouseMove);
+
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [prefersReducedMotion, x, y]);
 

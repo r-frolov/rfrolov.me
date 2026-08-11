@@ -27,6 +27,7 @@ export function useScrollSpy(sectionIds: string[]): TScrollSpyResult {
 
       const atBottom =
         window.innerHeight + scrollY >= document.documentElement.scrollHeight - 100;
+
       if (atBottom && lastId) {
         setActiveId(lastId);
       }
@@ -35,6 +36,7 @@ export function useScrollSpy(sectionIds: string[]): TScrollSpyResult {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.find((e) => e.isIntersecting);
+
         if (visible) {
           setActiveId(visible.target.id);
         }

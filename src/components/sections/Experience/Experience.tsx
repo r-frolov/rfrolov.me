@@ -4,7 +4,6 @@ import { m } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 import { AnimatedSection, Container, CountUp, SectionHeader } from "@/components/ui";
-import { SPACING } from "@/constants";
 import { TExperience } from "@/types";
 
 import { ExperienceCard, ScrollTimeline } from "./components";
@@ -13,20 +12,17 @@ import { useKeyboardNavigation } from "./hooks/useKeyboardNavigation";
 
 type TProps = {
   experiences: TExperience[];
+  careerYears: number;
   id?: string;
 };
 
-export function Experience({ experiences, id }: TProps) {
+export function Experience({ experiences, careerYears, id }: TProps) {
   const t = useTranslations("experience");
 
   useKeyboardNavigation({
     itemCount: experiences.length,
     sectionId: "experience",
   });
-
-  const careerYears = Math.floor(
-    (Date.now() - new Date("2018-12-01").getTime()) / (365.25 * 24 * 60 * 60 * 1000)
-  );
 
   return (
     <section id={id} className="py-8 lg:py-10">

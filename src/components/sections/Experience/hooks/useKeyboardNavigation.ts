@@ -15,6 +15,7 @@ export function useKeyboardNavigation({ itemCount, sectionId }: TOptions) {
 
       const items = section.querySelectorAll("[data-experience-card]");
       const target = items[index];
+
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "center" });
         setActiveIndex(index);
@@ -40,6 +41,7 @@ export function useKeyboardNavigation({ itemCount, sectionId }: TOptions) {
     }
 
     window.addEventListener("keydown", handleKeyDown);
+
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeIndex, itemCount, scrollToItem]);
 

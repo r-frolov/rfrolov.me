@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 
 import { AnimatedSection, Container, SectionHeader } from "@/components/ui";
-import { SPACING } from "@/constants";
 
 import { SKILL_CATEGORIES } from "./constants";
 import { SkillCategoryCard } from "./SkillCategoryCard";
