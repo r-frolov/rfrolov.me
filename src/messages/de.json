@@ -85,7 +85,8 @@
     "relatedProjects": "Ähnliche Projekte",
     "viewLive": "Live ansehen",
     "viewSource": "Quellcode ansehen",
-    "readCaseStudy": "Case Study lesen"
+    "readCaseStudy": "Fallstudie lesen",
+    "showAllProjects": "Alle Projekte anzeigen"
   },
   "blog": {
     "title": "Blog",
@@ -117,7 +118,9 @@
     },
     "onThisPage": "Auf dieser Seite",
     "openTableOfContents": "Inhaltsverzeichnis öffnen",
-    "closeTableOfContents": "Inhaltsverzeichnis schließen"
+    "closeTableOfContents": "Inhaltsverzeichnis schließen",
+    "noPostsForQuery": "Keine Beiträge für \"{query}\"",
+    "clearFilters": "Filter zurücksetzen"
   },
   "experiencePage": {
     "title": "Erfahrung",
@@ -159,7 +162,7 @@
     "description": "Books that shaped my thinking",
     "currentlyReading": "Currently Reading",
     "books": "{count} {count, plural, one {book} other {books}}",
-    "backToReadings": "Back to Readings",
+    "backToReadings": "Zurück zu Readings",
     "myThoughts": "My Thoughts"
   },
   "contact": {

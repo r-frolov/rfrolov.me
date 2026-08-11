@@ -74,7 +74,7 @@
       "work": "Work",
       "opensource": "Open Source"
     },
-    "backToProjects": "Back to Projects",
+    "backToProjects": "Back to projects",
     "showingCount": "Showing {count} of {total}",
     "noProjectsFound": "No projects found",
     "tryDifferentFilter": "Try selecting a different category",
@@ -83,9 +83,10 @@
     "team": "Team",
     "technologies": "Technologies",
     "relatedProjects": "Related Projects",
-    "viewLive": "View Live",
-    "viewSource": "View Source",
-    "readCaseStudy": "Read Case Study"
+    "viewLive": "View live",
+    "viewSource": "View source",
+    "readCaseStudy": "Read case study",
+    "showAllProjects": "Show all projects"
   },
   "blog": {
     "title": "Blog",
@@ -117,7 +118,9 @@
     },
     "onThisPage": "On this page",
     "openTableOfContents": "Open table of contents",
-    "closeTableOfContents": "Close table of contents"
+    "closeTableOfContents": "Close table of contents",
+    "noPostsForQuery": "No posts for \"{query}\"",
+    "clearFilters": "Clear filters"
   },
   "experiencePage": {
     "title": "Experience",
@@ -159,7 +162,7 @@
     "description": "Books that shaped my thinking",
     "currentlyReading": "Currently Reading",
     "books": "{count} {count, plural, one {book} other {books}}",
-    "backToReadings": "Back to Readings",
+    "backToReadings": "Back to readings",
     "myThoughts": "My Thoughts"
   },
   "contact": {
