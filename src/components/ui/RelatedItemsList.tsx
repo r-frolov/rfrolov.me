@@ -37,11 +37,13 @@ function RelatedItemsListInner<T extends TRelatedItem>({
       <h2 className={cn(TEXT_SIZE.heading, "font-semibold tracking-tight mb-6")}>{title}</h2>
       <div className="space-y-4">
         {items.map((item) => (
-          <Link
+          // Overlay link instead of wrapping the row — tags inside are links
+          // themselves, and nested <a> elements are invalid HTML that break
+          // hydration. Tag links opt out of the overlay via `relative z-10`.
+          <div
             key={getKey(item)}
-            href={getHref(item) as "/blog"}
             className={cn(
-              "group flex items-center justify-between gap-4 p-4 -mx-4 rounded-lg",
+              "group relative flex items-center justify-between gap-4 p-4 -mx-4 rounded-lg",
               "hover:bg-muted/50 transition-colors cursor-pointer"
             )}
           >
@@ -55,7 +57,12 @@ function RelatedItemsListInner<T extends TRelatedItem>({
             <ArrowRight
               className={cn(ICON_SIZE.sm, "shrink-0 text-muted-foreground", ARROW_HOVER.right)}
             />
-          </Link>
+            <Link
+              href={getHref(item) as "/blog"}
+              aria-label={item.title}
+              className="absolute inset-0"
+            />
+          </div>
         ))}
       </div>
     </section>

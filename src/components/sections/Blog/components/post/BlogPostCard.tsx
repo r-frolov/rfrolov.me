@@ -29,6 +29,7 @@ export const BlogPostCard = memo(function BlogPostCard({ post, index }: TBlogPos
       href={`/blog/${post.slug}`}
       internal
       featured={post.featured}
+      linkLabel={post.title}
     >
       <div className="flex flex-col h-full">
         <div className="flex items-start justify-between gap-4">
