@@ -96,7 +96,7 @@ export function SearchInput({
           className={
             isTactile
               ? "absolute right-3 top-1/2 -translate-y-1/2 tactile-surface tactile-surface--ghost tactile-surface--xs tactile-surface--square"
-              : "absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-muted-foreground hover:text-foreground"
+              : "absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-muted-foreground transition-[color,scale] duration-200 hover:text-foreground active:scale-[0.96]"
           }
           aria-label={t("clearSearch")}
         >

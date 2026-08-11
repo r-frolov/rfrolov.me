@@ -26,6 +26,9 @@ export const TEXT_SIZE = {
   title: "text-2xl",
 } as const;
 
+// Legacy-branch press feedback; the surface must name `scale` in its transition-property.
+export const PRESS_SCALE = "active:scale-[0.96]";
+
 // Durations only. Always pair with a transition-property utility
 // (`transition-colors`, `transition-[width]`, …) — on its own a duration leaves
 // `transition-property` at its initial value of `all`.

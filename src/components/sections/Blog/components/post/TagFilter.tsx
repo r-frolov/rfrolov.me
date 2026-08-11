@@ -23,7 +23,7 @@ type TProps = {
 
 const tagChipClass = (active: boolean) =>
   cn(
-    "shrink-0 whitespace-nowrap text-xs px-3 py-2 rounded-full cursor-pointer transition-colors",
+    "shrink-0 whitespace-nowrap text-xs px-3 py-2 rounded-full cursor-pointer transition-[color,background-color,opacity,scale] duration-200 active:scale-[0.96]",
     active ? "bg-foreground text-background" : "bg-muted text-muted-foreground hover:opacity-70"
   );
 
@@ -32,7 +32,7 @@ const tagChipClass = (active: boolean) =>
 // strengthens to signal a selected tag is hidden in the collapsed overflow.
 const actionChipClass = (active: boolean) =>
   cn(
-    "shrink-0 whitespace-nowrap text-xs px-3 py-2 rounded-full cursor-pointer transition-colors border",
+    "shrink-0 whitespace-nowrap text-xs px-3 py-2 rounded-full cursor-pointer transition-[color,border-color,scale] duration-200 active:scale-[0.96] border",
     active
       ? "border-foreground/50 text-foreground"
       : "border-muted-foreground/30 text-muted-foreground hover:border-muted-foreground/60 hover:text-foreground"

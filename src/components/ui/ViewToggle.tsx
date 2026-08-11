@@ -3,7 +3,7 @@
 import { Grid, List } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { HOVER_TEXT_COLOR, ICON_SIZE } from "@/constants";
+import { HOVER_TEXT_COLOR, ICON_SIZE, PRESS_SCALE } from "@/constants";
 import { useTactileSurface } from "@/hooks";
 import { cn } from "@/lib/utils";
 
@@ -46,7 +46,8 @@ export function ViewToggle({ view, onViewChange }: TViewToggleProps) {
   // Legacy branch — current code, untouched.
   const getButtonClassName = (isActive: boolean) =>
     cn(
-      "p-2.5 rounded transition-[background-color,color,box-shadow] cursor-pointer",
+      "p-2.5 rounded transition-[background-color,color,box-shadow,scale] duration-200 cursor-pointer",
+      PRESS_SCALE,
       isActive ? "bg-background text-foreground shadow-sm" : HOVER_TEXT_COLOR
     );
 
