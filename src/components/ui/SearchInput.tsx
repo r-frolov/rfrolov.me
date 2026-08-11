@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { Search, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { useTactileSurface } from "@/hooks";
 import { useDebounce } from "@/lib/hooks";
@@ -19,10 +20,11 @@ type TSearchInputProps = {
 export function SearchInput({
   value,
   onChange,
-  placeholder = "Search...",
+  placeholder,
   className,
   debounceMs = 300,
 }: TSearchInputProps) {
+  const t = useTranslations("common");
   const [localValue, setLocalValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
   const isTactile = useTactileSurface("search-clear");
@@ -76,7 +78,7 @@ export function SearchInput({
         type="text"
         value={localValue}
         onChange={handleChange}
-        placeholder={placeholder}
+        placeholder={placeholder ?? t("searchPlaceholder")}
         className={cn(
           // 16px on mobile: iOS Safari zooms the page when a focused input is
           // smaller, and there is no gesture that undoes that zoom.
@@ -96,7 +98,7 @@ export function SearchInput({
               ? "absolute right-3 top-1/2 -translate-y-1/2 tactile-surface tactile-surface--ghost tactile-surface--xs tactile-surface--square"
               : "absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-muted-foreground hover:text-foreground"
           }
-          aria-label="Clear search"
+          aria-label={t("clearSearch")}
         >
           {isTactile ? (
             <span>
