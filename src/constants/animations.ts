@@ -11,6 +11,18 @@ export const SPRING_TRANSITION = {
   damping: 20,
 } as const;
 
+export const ICON_SWAP = {
+  initial: { opacity: 0, scale: 0.25, filter: "blur(4px)" },
+  animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
+  exit: { opacity: 0, scale: 0.25, filter: "blur(4px)" },
+};
+
+export const ICON_SWAP_TRANSITION = {
+  type: "spring",
+  duration: ANIMATION_DURATION.normal,
+  bounce: 0,
+} as const;
+
 export const TOAST_DURATION_MS = 2000;
 
 export const FADE_IN = {
