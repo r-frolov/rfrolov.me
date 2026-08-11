@@ -3,13 +3,13 @@
 import { ReactNode } from "react";
 
 import { m } from "framer-motion";
-import { Clock } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import {
   BlogTag,
   MobileTOC,
   PostNavigation,
+  ReadingTime,
   RelatedPosts,
   SeriesNavigation,
   TableOfContents,
@@ -64,10 +64,7 @@ export function BlogPostLayout({
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <time dateTime={post.date}>{formattedDate}</time>
                   <span>·</span>
-                  <span className="inline-flex items-center gap-1">
-                    <Clock className="h-4 w-4" aria-hidden="true" />
-                    {post.readingTime} min read
-                  </span>
+                  <ReadingTime minutes={post.readingTime} showLabel />
                 </div>
 
                 <h1
