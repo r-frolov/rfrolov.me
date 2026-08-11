@@ -33,6 +33,7 @@ export function CommandGroup({
   return (
     <>
       <li
+        role="presentation"
         className={cn(
           "px-2 py-1.5 text-xs font-medium text-muted-foreground",
           !isFirst && "mt-2"

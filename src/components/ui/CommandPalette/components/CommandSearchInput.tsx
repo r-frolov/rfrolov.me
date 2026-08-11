@@ -14,6 +14,8 @@ type TCommandSearchInputProps = {
   query: string;
   onQueryChange: (query: string) => void;
   onClose: () => void;
+  listId: string;
+  activeDescendantId?: string;
 };
 
 export function CommandSearchInput({
@@ -21,6 +23,8 @@ export function CommandSearchInput({
   query,
   onQueryChange,
   onClose,
+  listId,
+  activeDescendantId,
 }: TCommandSearchInputProps) {
   const t = useTranslations();
   const isTactile = useTactileSurface("command-palette");
@@ -35,6 +39,11 @@ export function CommandSearchInput({
         onChange={(e) => onQueryChange(e.target.value)}
         placeholder={t("commandPalette.placeholder")}
         aria-label={t("commandPalette.placeholder")}
+        role="combobox"
+        aria-expanded
+        aria-controls={listId}
+        aria-autocomplete="list"
+        aria-activedescendant={activeDescendantId}
         style={{ outline: "none", boxShadow: "none" }}
         className={cn(
           // 16px on mobile — see SearchInput.

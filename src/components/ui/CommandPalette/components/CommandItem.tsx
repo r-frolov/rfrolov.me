@@ -1,7 +1,5 @@
 "use client";
 
-import { m } from "framer-motion";
-
 import { TRANSITION } from "@/constants";
 import { useTactileSurface } from "@/hooks";
 import { cn } from "@/lib/utils";
@@ -27,19 +25,13 @@ export function CommandItem({
   const isTactile = useTactileSurface("command-palette");
 
   return (
-    <m.li
-      role="menuitem"
-      tabIndex={-1}
+    <li
+      id={`command-option-${index}`}
+      role="option"
+      aria-selected={isSelected}
       data-selected={isSelected}
       onMouseEnter={onHover}
       onClick={onSelect}
-      initial={{ opacity: 0, x: -8 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{
-        delay: Math.min(index * 0.02, 0.2),
-        duration: 0.2,
-        ease: [0.22, 1, 0.36, 1] as const,
-      }}
       className={
         isTactile
           ? "tactile-surface tactile-surface--ghost tactile-surface--md w-full justify-start px-3"
@@ -61,6 +53,6 @@ export function CommandItem({
           <span className="text-sm">{label}</span>
         </>
       )}
-    </m.li>
+    </li>
   );
 }
