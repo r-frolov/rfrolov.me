@@ -37,7 +37,8 @@ export function CommandSearchInput({
         aria-label={t("commandPalette.placeholder")}
         style={{ outline: "none", boxShadow: "none" }}
         className={cn(
-          "flex-1 bg-transparent py-4 text-sm",
+          // 16px on mobile — see SearchInput.
+          "flex-1 bg-transparent py-4 text-base sm:text-sm",
           "placeholder:text-muted-foreground",
           isTactile && "tactile-well"
         )}

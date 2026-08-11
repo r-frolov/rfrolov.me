@@ -78,7 +78,10 @@ export function SearchInput({
         onChange={handleChange}
         placeholder={placeholder}
         className={cn(
-          "w-full rounded-lg border border-border-strong bg-background py-2 pl-10 pr-10 text-sm",
+          // 16px on mobile: iOS Safari zooms the page when a focused input is
+          // smaller, and there is no gesture that undoes that zoom.
+          "w-full rounded-lg border border-border-strong bg-background py-2 pl-10 pr-10",
+          "text-base sm:text-sm",
           "placeholder:text-muted-foreground",
           "focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-background",
           "transition-shadow",

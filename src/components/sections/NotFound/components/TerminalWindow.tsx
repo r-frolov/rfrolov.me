@@ -19,7 +19,9 @@ export function TerminalWindow({ children, title, onContentClick }: TTerminalWin
       </div>
 
       <div
-        className="p-4 font-mono text-sm min-h-[300px] max-h-[400px] overflow-y-auto"
+        // text-base on mobile so the terminal input stays at 16px and does not
+        // trigger the iOS Safari focus zoom; the output matches it.
+        className="p-4 font-mono text-base sm:text-sm min-h-[300px] max-h-[400px] overflow-y-auto"
         onClick={onContentClick}
       >
         {children}
