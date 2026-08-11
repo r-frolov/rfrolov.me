@@ -5,7 +5,7 @@ export const projects: TProject[] = [
     id: "portfolio",
     title: "Persönliches Portfolio",
     description:
-      "Modernes Entwickler-Portfolio erstellt mit Next.js 15 und Tailwind CSS v4. Mit flüssigen Animationen, Dark Mode und einer kreativen 404-Seite mit Terminal-Emulation.",
+      "Modernes Entwickler-Portfolio erstellt mit Next.js 16 und Tailwind CSS v4. Mit flüssigen Animationen, Dark Mode und einer kreativen 404-Seite mit Terminal-Emulation.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     year: 2025,
     category: "personal",

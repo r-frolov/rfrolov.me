@@ -93,7 +93,13 @@ export const mdxComponents = {
   img: ({ className, alt, ...props }: ComponentPropsWithoutRef<"img">) => (
     <ScrollReveal className="my-6">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img alt={alt ?? ""} className={cn("rounded-lg w-full", className)} {...props} />
+      <img
+        alt={alt ?? ""}
+        loading="lazy"
+        decoding="async"
+        className={cn("rounded-lg w-full", className)}
+        {...props}
+      />
     </ScrollReveal>
   ),
   hr: () => <hr className="border-muted my-8" />,
