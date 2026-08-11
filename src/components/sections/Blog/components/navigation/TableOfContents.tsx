@@ -37,7 +37,7 @@ export function TableOfContents({ headings }: TTableOfContentsProps) {
 
       <div className="mb-3 h-1 w-full overflow-hidden rounded-full bg-muted">
         <div
-          className="h-full bg-foreground transition-all duration-150 ease-out"
+          className="h-full bg-foreground transition-[width] duration-150 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -53,7 +53,7 @@ export function TableOfContents({ headings }: TTableOfContentsProps) {
                 onClick={(e) => handleClick(e, id)}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
-                  "block -ml-px border-l-2 py-1.5 text-sm transition-all duration-150 cursor-pointer rounded-r-sm",
+                  "block -ml-px border-l-2 py-1.5 text-sm transition-[color,border-color] duration-150 cursor-pointer rounded-r-sm",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   level === 2 ? "pl-4 pr-2" : "pl-7 pr-2",
                   isActive

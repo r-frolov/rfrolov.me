@@ -16,7 +16,7 @@ type TSectionHeaderProps = {
 
 export function SectionHeader({ title, description, link, as: Tag = "h2" }: TSectionHeaderProps) {
   const titleClasses = cn(
-    "font-semibold tracking-tight",
+    "font-semibold tracking-tight text-balance",
     Tag === "h1" ? TEXT_SIZE.title : TEXT_SIZE.heading
   );
 
@@ -25,7 +25,7 @@ export function SectionHeader({ title, description, link, as: Tag = "h2" }: TSec
       <div>
         <RevealText as={Tag} text={title} className={titleClasses} />
         {description && (
-          <p className={cn("text-muted-foreground mt-2", TEXT_SIZE.body)}>{description}</p>
+          <p className={cn("text-muted-foreground mt-2 text-pretty", TEXT_SIZE.body)}>{description}</p>
         )}
       </div>
       {link && (

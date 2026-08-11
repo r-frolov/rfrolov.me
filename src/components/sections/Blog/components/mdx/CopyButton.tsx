@@ -45,7 +45,7 @@ export const CopyButton = memo(function CopyButton({ text }: TCopyButtonProps) {
         isTactile
           ? "tactile-surface tactile-surface--ghost tactile-surface--xs tactile-surface--square"
           : cn(
-              "p-1 rounded transition-all duration-200 cursor-pointer",
+              "p-1 rounded transition-colors duration-200 cursor-pointer",
               copied ? "text-green-500" : "text-muted-foreground/70 hover:text-foreground"
             )
       }

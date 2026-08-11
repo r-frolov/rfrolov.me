@@ -2,7 +2,7 @@
 
 import { memo } from "react";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLocale } from "next-intl";
 
 import { AnimatedCard } from "@/components/ui";
@@ -50,18 +50,18 @@ export const BlogPostCard = memo(function BlogPostCard({
               <ReadingTime minutes={post.readingTime} showLabel />
             </div>
             <Heading
-              className="font-medium"
+              className="font-medium text-balance"
               style={{ viewTransitionName: `blog-title-${post.slug}` }}
             >
               {post.title}
             </Heading>
           </div>
-          <ArrowUpRight
-            className={cn(ICON_SIZE.sm, "shrink-0 text-muted-foreground", ARROW_HOVER.upRight)}
+          <ArrowRight
+            className={cn(ICON_SIZE.sm, "shrink-0 text-muted-foreground", ARROW_HOVER.right)}
           />
         </div>
 
-        <p className="text-sm text-muted-foreground line-clamp-2 mt-3 grow">{post.description}</p>
+        <p className="text-sm text-muted-foreground text-pretty line-clamp-2 mt-3 grow">{post.description}</p>
 
         <div className="mt-4">
           <BlogTags tags={post.tags} limit={3} wrap insideCard />

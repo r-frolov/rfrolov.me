@@ -16,7 +16,7 @@ export function SkillCard({ skill }: TSkillCardProps) {
     <m.div
       variants={SKILLS_ANIMATION.item}
       className="flex flex-col items-center gap-1.5 p-2 rounded-md
-                 hover:bg-muted/50 transition-all duration-300
+                 hover:bg-muted/50 transition-colors duration-300
                  group cursor-default"
     >
       <TechIcon

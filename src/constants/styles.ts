@@ -2,7 +2,8 @@ export const HOVER_OPACITY = "hover:opacity-70 transition-opacity cursor-pointer
 
 export const HOVER_TEXT_COLOR = "text-muted-foreground hover:text-foreground";
 
-export const CARD_BASE = "rounded-lg border bg-background p-6 shadow-xs transition-all duration-300";
+export const CARD_BASE =
+  "rounded-lg border bg-background p-6 shadow-xs transition-[box-shadow,transform,border-color] duration-300";
 
 export const CARD_HOVER = "hover:shadow-md hover:scale-[1.01]";
 
@@ -25,6 +26,9 @@ export const TEXT_SIZE = {
   title: "text-2xl",
 } as const;
 
+// Durations only. Always pair with a transition-property utility
+// (`transition-colors`, `transition-[width]`, …) — on its own a duration leaves
+// `transition-property` at its initial value of `all`.
 export const TRANSITION = {
   fast: "duration-100",
   normal: "duration-200",
