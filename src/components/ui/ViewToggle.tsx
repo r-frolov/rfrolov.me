@@ -1,6 +1,7 @@
 "use client";
 
 import { Grid, List } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { HOVER_TEXT_COLOR, ICON_SIZE } from "@/constants";
 import { useTactileSurface } from "@/hooks";
@@ -14,6 +15,7 @@ type TViewToggleProps = {
 };
 
 export function ViewToggle({ view, onViewChange }: TViewToggleProps) {
+  const t = useTranslations("common");
   const isTactile = useTactileSurface("view-toggle");
 
   if (isTactile) {
@@ -23,7 +25,7 @@ export function ViewToggle({ view, onViewChange }: TViewToggleProps) {
           type="button"
           onClick={() => onViewChange("grid")}
           className="tactile-surface tactile-surface--ghost tactile-surface--sm tactile-surface--square"
-          aria-label="Grid view"
+          aria-label={t("gridView")}
           aria-pressed={view === "grid"}
         >
           <span><Grid className={ICON_SIZE.sm} /></span>
@@ -32,7 +34,7 @@ export function ViewToggle({ view, onViewChange }: TViewToggleProps) {
           type="button"
           onClick={() => onViewChange("list")}
           className="tactile-surface tactile-surface--ghost tactile-surface--sm tactile-surface--square"
-          aria-label="List view"
+          aria-label={t("listView")}
           aria-pressed={view === "list"}
         >
           <span><List className={ICON_SIZE.sm} /></span>
@@ -53,7 +55,7 @@ export function ViewToggle({ view, onViewChange }: TViewToggleProps) {
       <button
         onClick={() => onViewChange("grid")}
         className={getButtonClassName(view === "grid")}
-        aria-label="Grid view"
+        aria-label={t("gridView")}
         aria-pressed={view === "grid"}
       >
         <Grid className={ICON_SIZE.sm} />
@@ -61,7 +63,7 @@ export function ViewToggle({ view, onViewChange }: TViewToggleProps) {
       <button
         onClick={() => onViewChange("list")}
         className={getButtonClassName(view === "list")}
-        aria-label="List view"
+        aria-label={t("listView")}
         aria-pressed={view === "list"}
       >
         <List className={ICON_SIZE.sm} />

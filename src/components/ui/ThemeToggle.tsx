@@ -25,7 +25,7 @@ export function ThemeToggle() {
 
   if (!hydrated) {
     return (
-      <IconButton aria-label="Toggle theme" disabled>
+      <IconButton aria-label={t("toggleTheme")} disabled>
         <div className={ICON_SIZE.sm} />
       </IconButton>
     );

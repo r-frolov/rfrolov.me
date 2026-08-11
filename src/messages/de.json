@@ -6,7 +6,11 @@
     "copyLink": "Link zum Abschnitt kopieren",
     "skipToContent": "Zum Inhalt springen",
     "scrollToTop": "Nach oben scrollen",
-    "mobileMenu": "Mobile Navigationsmenü"
+    "mobileMenu": "Mobile Navigationsmenü",
+    "clearSearch": "Suche zurücksetzen",
+    "searchPlaceholder": "Suchen...",
+    "gridView": "Rasteransicht",
+    "listView": "Listenansicht"
   },
   "nav": {
     "home": "Startseite",
@@ -193,7 +197,8 @@
   },
   "theme": {
     "switchToLight": "Zum hellen Modus wechseln",
-    "switchToDark": "Zum dunklen Modus wechseln"
+    "switchToDark": "Zum dunklen Modus wechseln",
+    "toggleTheme": "Design umschalten"
   },
   "language": {
     "switchTo": "Zu {language} wechseln",
