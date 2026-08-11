@@ -21,9 +21,12 @@ export function HamburgerIcon({ isOpen }: THamburgerIconProps) {
       {/* Top line - moves down and rotates to form \ */}
       <m.line
         x1="4"
+        y1="6"
         x2="20"
+        y2="6"
         strokeWidth={2}
         strokeLinecap="round"
+        initial={false}
         animate={{
           y1: isOpen ? 12 : 6,
           y2: isOpen ? 12 : 6,
@@ -40,15 +43,19 @@ export function HamburgerIcon({ isOpen }: THamburgerIconProps) {
         y2="12"
         strokeWidth={2}
         strokeLinecap="round"
+        initial={false}
         animate={{ opacity: isOpen ? 0 : 1 }}
         transition={{ duration: ANIMATION_DURATION.fast }}
       />
       {/* Bottom line - moves up and rotates to form / */}
       <m.line
         x1="4"
+        y1="18"
         x2="20"
+        y2="18"
         strokeWidth={2}
         strokeLinecap="round"
+        initial={false}
         animate={{
           y1: isOpen ? 12 : 18,
           y2: isOpen ? 12 : 18,
