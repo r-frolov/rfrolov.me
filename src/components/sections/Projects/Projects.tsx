@@ -96,6 +96,7 @@ export function Projects({ projects, projectsWithDetails = [] }: TProps) {
               title={t("noProjectsFound")}
               description={t("tryDifferentFilter")}
               variant="filter"
+              action={{ label: t("showAllProjects"), onClick: () => setFilter("all") }}
             />
           )}
         </AnimatedSection>

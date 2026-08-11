@@ -52,6 +52,11 @@ export function BlogPageClient({ posts, tags }: TProps) {
     return result;
   }, [posts, selectedTags, searchQuery]);
 
+  const clearFilters = () => {
+    setSelectedTags([]);
+    setSearchQuery("");
+  };
+
   const isFiltering = selectedTags.length > 0 || searchQuery.trim() !== "";
   const showFilterCount = isFiltering && filteredPosts.length !== posts.length;
 
@@ -112,9 +117,12 @@ export function BlogPageClient({ posts, tags }: TProps) {
             )
           ) : (
             <EmptyState
-              title={t("noPostsFound")}
+              title={
+                searchQuery ? t("noPostsForQuery", { query: searchQuery }) : t("noPostsFound")
+              }
               description={searchQuery ? t("tryDifferentSearch") : t("tryDifferentFilter")}
               variant={searchQuery ? "search" : "filter"}
+              action={{ label: t("clearFilters"), onClick: clearFilters }}
             />
           )}
         </m.div>

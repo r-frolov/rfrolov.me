@@ -1,3 +1,5 @@
+"use client";
+
 import { FileX, Search } from "lucide-react";
 
 import { TEXT_SIZE } from "@/constants";
@@ -8,6 +10,11 @@ type TEmptyStateProps = {
   description?: string;
   variant?: "search" | "filter";
   className?: string;
+  /** Label and handler for the way out — a filter empty state needs one. */
+  action?: {
+    label: string;
+    onClick: () => void;
+  };
 };
 
 export function EmptyState({
@@ -15,6 +22,7 @@ export function EmptyState({
   description,
   variant = "filter",
   className,
+  action,
 }: TEmptyStateProps) {
   const Icon = variant === "search" ? Search : FileX;
 
@@ -25,6 +33,15 @@ export function EmptyState({
       </div>
       <h3 className={cn(TEXT_SIZE.heading, "font-medium")}>{title}</h3>
       {description && <p className="mt-2 text-sm text-muted-foreground">{description}</p>}
+      {action && (
+        <button
+          type="button"
+          onClick={action.onClick}
+          className="mt-4 cursor-pointer rounded-md border border-muted-foreground/30 px-3 py-1.5 text-sm text-foreground transition-opacity hover:opacity-70"
+        >
+          {action.label}
+        </button>
+      )}
     </div>
   );
 }
