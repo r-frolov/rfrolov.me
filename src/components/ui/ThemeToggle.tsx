@@ -7,8 +7,9 @@ import { Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
-import { ANIMATION_DURATION, ICON_SIZE } from "@/constants";
+import { ICON_SIZE, ICON_SWAP, ICON_SWAP_TRANSITION } from "@/constants";
 import { useHydrated, useReducedMotion } from "@/hooks";
+import { cn } from "@/lib/utils";
 
 import { IconButton } from "./IconButton";
 
@@ -76,17 +77,18 @@ export function ThemeToggle() {
       onClick={handleToggle}
       aria-label={isDark ? t("switchToLight") : t("switchToDark")}
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <m.div
-          key={isDark ? "dark" : "light"}
-          initial={{ opacity: 0, rotate: -180, scale: 0.5 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          exit={{ opacity: 0, rotate: 180, scale: 0.5 }}
-          transition={{ duration: ANIMATION_DURATION.normal }}
-        >
-          {isDark ? <Sun className={ICON_SIZE.sm} /> : <Moon className={ICON_SIZE.sm} />}
-        </m.div>
-      </AnimatePresence>
+      <span className={cn("relative block", ICON_SIZE.sm)}>
+        <AnimatePresence initial={false}>
+          <m.span
+            key={isDark ? "dark" : "light"}
+            className="absolute inset-0"
+            {...ICON_SWAP}
+            transition={prefersReducedMotion ? { duration: 0 } : ICON_SWAP_TRANSITION}
+          >
+            {isDark ? <Sun className={ICON_SIZE.sm} /> : <Moon className={ICON_SIZE.sm} />}
+          </m.span>
+        </AnimatePresence>
+      </span>
     </IconButton>
   );
 }
