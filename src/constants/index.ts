@@ -15,6 +15,7 @@ export { IS_PRODUCTION } from "./env";
 export { CONTENT_PATHS } from "./paths";
 export { NAV_LINKS, STATIC_ROUTES } from "./routes";
 export type { TNavLink, TStaticRoute } from "./routes";
+export { SITE_NAME, SITE_ROLE } from "./site";
 export { SITE_URL } from "./urls";
 export {
   ARROW_HOVER,

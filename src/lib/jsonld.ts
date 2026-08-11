@@ -1,13 +1,13 @@
-import { SITE_URL } from "@/constants";
+import { SITE_NAME, SITE_ROLE, SITE_URL } from "@/constants";
 import { TBlogPostMeta, TBook, TProjectDetailMeta } from "@/types";
 
 export function generatePersonSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Roman Frolov",
+    name: SITE_NAME,
     url: SITE_URL,
-    jobTitle: "Frontend Developer",
+    jobTitle: SITE_ROLE,
     sameAs: [
       "https://github.com/r-frolov",
       "https://www.linkedin.com/in/r-frolov",
@@ -25,12 +25,12 @@ export function generateBlogPostSchema(post: TBlogPostMeta, locale: string) {
     dateModified: post.date,
     author: {
       "@type": "Person",
-      name: "Roman Frolov",
+      name: SITE_NAME,
       url: SITE_URL,
     },
     publisher: {
       "@type": "Person",
-      name: "Roman Frolov",
+      name: SITE_NAME,
       url: SITE_URL,
     },
     mainEntityOfPage: {
@@ -48,11 +48,11 @@ export function generateWebsiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Roman Frolov",
+    name: SITE_NAME,
     url: SITE_URL,
     author: {
       "@type": "Person",
-      name: "Roman Frolov",
+      name: SITE_NAME,
     },
   };
 }
@@ -63,12 +63,12 @@ export function generateExperiencePageSchema(locale: string) {
     "@type": "ProfilePage",
     mainEntity: {
       "@type": "Person",
-      name: "Roman Frolov",
+      name: SITE_NAME,
       url: SITE_URL,
-      jobTitle: "Frontend Developer",
+      jobTitle: SITE_ROLE,
       hasOccupation: {
         "@type": "Occupation",
-        name: "Frontend Developer",
+        name: SITE_ROLE,
         occupationLocation: {
           "@type": "City",
           name: "Berlin",
@@ -90,7 +90,7 @@ export function generateProjectJsonLd(project: TProjectDetailMeta, locale: strin
     applicationCategory: "WebApplication",
     author: {
       "@type": "Person",
-      name: "Roman Frolov",
+      name: SITE_NAME,
       url: SITE_URL,
     },
     dateCreated: `${project.year}-01-01`,
@@ -137,7 +137,7 @@ export function generateBookReviewSchema(book: TBook, locale: string) {
     },
     author: {
       "@type": "Person",
-      name: "Roman Frolov",
+      name: SITE_NAME,
       url: SITE_URL,
     },
     url: `${SITE_URL}/${locale}/readings/${book.slug}`,
