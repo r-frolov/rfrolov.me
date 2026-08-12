@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 
 import { BackLink, BlurImage, Container, Tag } from "@/components/ui";
 import { ANIMATION_DURATION, TEXT_SIZE } from "@/constants";
+import { formatMonthYear } from "@/lib/date";
 import { cn } from "@/lib/utils";
 import { TBook } from "@/types";
 
@@ -18,11 +19,7 @@ type TProps = {
 export function BookDetail({ book, children }: TProps) {
   const t = useTranslations("readings");
 
-  const date = new Date(book.dateRead + "-01");
-  const formattedDate = date.toLocaleDateString("en-US", {
-    month: "long",
-    year: "numeric",
-  });
+  const formattedDate = formatMonthYear(`${book.dateRead}-01`, { month: "long" });
 
   return (
     <section className="py-12 lg:py-16">

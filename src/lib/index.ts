@@ -13,7 +13,7 @@ export {
 } from "./blog";
 export type { TAdjacentPosts, TSeriesInfo, TTagWithCount } from "./blog";
 export { fileExists, getMDXFiles, parseMDXFile } from "./content";
-export { formatDate } from "./date";
+export { formatDate, formatMonthYear } from "./date";
 export { extractTextFromChildren, getTextContent } from "./extract-text";
 export { useDebounce } from "./hooks";
 export {
