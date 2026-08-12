@@ -9,8 +9,8 @@ type TProps = {
 
 const LINE_COLORS: Record<TTerminalLineType, string> = {
   command: "text-foreground",
-  error: "text-red-500",
-  success: "text-green-500",
+  error: "text-red-700 dark:text-red-400",
+  success: "text-green-700 dark:text-green-400",
   output: "text-muted-foreground",
   empty: "text-foreground",
 };

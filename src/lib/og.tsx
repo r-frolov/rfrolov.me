@@ -8,12 +8,16 @@ export const OG_SIZE = {
   height: 630,
 };
 
+/* Satori cannot read the stylesheet, so these are the `.dark` tokens resolved
+   by hand — background, foreground, muted-foreground and muted respectively,
+   plus one dimmer step for dates and counts. The card is always dark, whatever
+   theme the visitor has. Keep them in step with globals.css. */
 export const OG_COLORS = {
-  background: "#0a0a0a",
-  foreground: "#fafafa",
-  muted: "#a1a1aa",
-  mutedForeground: "#71717a",
-  card: "#27272a",
+  background: "#121212",
+  foreground: "#f2f2f2",
+  muted: "#a6a6a6",
+  mutedForeground: "#808080",
+  card: "#262626",
 } as const;
 
 export const OG_FONTS = {
