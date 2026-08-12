@@ -25,6 +25,10 @@ bun run typecheck  # tsc --noEmit
 
 There is no `bun run start` — the build is a static export.
 
+## Next.js docs
+
+This repo runs Next.js 16. Read `node_modules/next/dist/docs/` before writing framework code — App Router APIs changed from earlier versions. `next dev` offers to write that pointer into this file on its own; `agentRules: false` in `next.config.ts` turns it off so this file stays hand-written.
+
 ## Project Structure
 
 ```

@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   output: "export",
+  agentRules: false,
   images: {
     unoptimized: true,
   },
