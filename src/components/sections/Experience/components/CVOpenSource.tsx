@@ -2,7 +2,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { AnimatedSection, Container, SectionHeader } from "@/components/ui";
-import { EXTERNAL_LINK_PROPS, HOVER_TEXT_COLOR } from "@/constants";
+import { EXTERNAL_LINK_PROPS, HOVER_TEXT_COLOR, PROSE_MEASURE } from "@/constants";
 import { openSourceProjects } from "@/data/open-source";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,7 @@ export function CVOpenSource({ id }: TProps) {
           <div className="space-y-6">
             {openSourceProjects.map((project) => (
               <div key={project.id} className="flex items-start justify-between gap-4">
-                <div className="space-y-1 min-w-0">
+                <div className={cn("space-y-1 min-w-0", PROSE_MEASURE)}>
                   <p className="text-sm font-medium">{project.name}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
                   <p className="text-xs text-muted-foreground/60">{project.tech}</p>
