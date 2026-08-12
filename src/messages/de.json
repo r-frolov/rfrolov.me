@@ -160,11 +160,11 @@
   },
   "readings": {
     "title": "Readings",
-    "description": "Books that shaped my thinking",
-    "currentlyReading": "Currently Reading",
-    "books": "{count} {count, plural, one {book} other {books}}",
+    "description": "Bücher, die mein Denken geprägt haben",
+    "currentlyReading": "Aktuelle Lektüre",
+    "books": "{count} {count, plural, one {Buch} other {Bücher}}",
     "backToReadings": "Zurück zu Readings",
-    "myThoughts": "My Thoughts"
+    "myThoughts": "Meine Gedanken"
   },
   "contact": {
     "getInTouch": "Kontakt aufnehmen"
@@ -217,7 +217,7 @@
     "experienceTitle": "Erfahrung - Roman Frolov",
     "experienceDescription": "Berufserfahrung, Fähigkeiten und Ausbildung von Roman Frolov, einem Software Engineer in Berlin.",
     "readingsTitle": "Readings - Roman Frolov",
-    "readingsDescription": "Books I've read with personal reflections."
+    "readingsDescription": "Bücher, die ich gelesen habe, mit persönlichen Gedanken."
   },
   "footer": {
     "copyright": "© {year} Roman Frolov"
