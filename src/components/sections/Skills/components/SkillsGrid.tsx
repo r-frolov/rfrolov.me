@@ -17,7 +17,7 @@ export function SkillsGrid() {
             slug={skill.icon}
             className="h-3.5 w-3.5 [color:var(--skill-color)] opacity-60 group-hover:opacity-100 transition-opacity duration-200"
           />
-          <span className="text-xs transition-colors duration-200 group-hover:[color:var(--skill-color)]">
+          <span className="text-xs transition-colors duration-200 group-hover:text-foreground">
             {skill.name}
           </span>
         </div>
