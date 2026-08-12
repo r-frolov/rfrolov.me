@@ -35,7 +35,7 @@ export function TableOfContents({ headings }: TTableOfContentsProps) {
         <span className="text-xs text-muted-foreground">{Math.round(progress)}%</span>
       </div>
 
-      <div className="mb-3 h-1 w-full overflow-hidden rounded-full bg-muted">
+      <div className="mb-3 h-1 w-full overflow-hidden rounded-full bg-border">
         <div
           className="h-full bg-foreground transition-[width] duration-150 ease-out"
           style={{ width: `${progress}%` }}

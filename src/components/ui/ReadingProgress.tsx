@@ -15,7 +15,7 @@ export function ReadingProgress({ showPercentage = false }: TReadingProgressProp
   return (
     <div className="fixed top-16 left-0 right-0 z-40 group">
       {/* Progress bar track */}
-      <div className="h-0.5 bg-muted">
+      <div className="h-0.5 bg-border">
         <div
           className={cn(
             "h-full transition-[width,background-color] duration-150 ease-out",

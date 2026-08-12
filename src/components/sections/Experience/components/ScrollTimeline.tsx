@@ -21,7 +21,7 @@ export function ScrollTimeline({ children }: TProps) {
   return (
     <div ref={containerRef} className="relative">
       {/* Background track */}
-      <div className="absolute left-[3px] top-0 bottom-0 w-px bg-muted" />
+      <div className="absolute left-[3px] top-0 bottom-0 w-px bg-border" />
       {/* Animated fill */}
       <m.div
         className="absolute left-[3px] top-0 w-px bg-foreground/40 origin-top"

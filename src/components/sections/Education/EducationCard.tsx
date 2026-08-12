@@ -19,7 +19,7 @@ export function EducationCard({ education, isLast }: TProps) {
       className={cn("relative pl-6", isLast ? "pb-0" : "pb-8")}
     >
       <div className="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-muted-foreground" />
-      {!isLast && <div className="absolute left-[3px] top-4 bottom-0 w-px bg-muted" />}
+      {!isLast && <div className="absolute left-[3px] top-4 bottom-0 w-px bg-border" />}
 
       <div className="space-y-1">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
