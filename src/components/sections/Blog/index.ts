@@ -12,4 +12,4 @@ export {
   TableOfContents,
   TagFilter,
 } from "./components";
-export { getTagColor, TAG_COLORS, TOC_OBSERVER_MARGIN } from "./constants";
+export { TAG_CHIP, TOC_OBSERVER_MARGIN } from "./constants";

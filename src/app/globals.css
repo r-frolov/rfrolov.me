@@ -20,13 +20,18 @@
 /* --border is the hairline for dividers and surface edges. --border-strong is
    for boundaries that identify a control on their own (form fields); it stays
    at or above 3:1 against --background in both themes, which is what WCAG
-   1.4.11 requires. --muted is a fill color — never use it as a border. */
+   1.4.11 requires. --muted is a fill color — never use it as a border.
+
+   The light values are set so each neutral separates from --background by
+   roughly what its dark counterpart does. Light steps of the same nominal size
+   land much closer together than dark ones, so the light scale has to spread
+   wider to feel equivalent. */
 :root {
   --background: 0 0% 100%;
   --foreground: 0 0% 9%;
-  --muted: 0 0% 96%;
+  --muted: 0 0% 92%;
   --muted-foreground: 0 0% 38%;
-  --border: 0 0% 88%;
+  --border: 0 0% 80%;
   --border-strong: 0 0% 57%;
   --accent: 215 60% 50%;
   --accent-foreground: 215 60% 40%;

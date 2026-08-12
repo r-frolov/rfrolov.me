@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { getTagColor } from "@/components/sections/Blog/constants";
+import { TAG_CHIP } from "@/components/sections/Blog/constants";
 import { BackLink, Container } from "@/components/ui";
 import { HOVER_OPACITY } from "@/constants";
 import { isLocale, locales } from "@/i18n/config";
@@ -50,7 +50,7 @@ export default async function TagsPage({ params }: TProps) {
                 href={getTagUrl(tag)}
                 className={cn(
                   "inline-flex items-center gap-2 px-3 py-2 rounded-lg",
-                  getTagColor(tag),
+                  TAG_CHIP,
                   HOVER_OPACITY
                 )}
               >
