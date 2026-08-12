@@ -29,6 +29,9 @@ export function Projects({ projects, projectsWithDetails = [] }: TProps) {
 
   const [firstProject, ...restProjects] = filteredProjects;
 
+  // The lead card spans both columns, so an odd remainder leaves the last row half empty.
+  const lastCardSpansRow = restProjects.length % 2 === 1;
+
   const showFilterCount = filter !== "all" && filteredProjects.length !== projects.length;
 
   return (
@@ -87,6 +90,7 @@ export function Projects({ projects, projectsWithDetails = [] }: TProps) {
                   key={project.id}
                   project={project}
                   index={index + 1}
+                  large={lastCardSpansRow && index === restProjects.length - 1}
                   hasDetail={detailIds.has(project.id)}
                 />
               ))}
