@@ -2,10 +2,8 @@
 
 import { useTranslations } from "next-intl";
 
-import { AnimatedSection, Container } from "@/components/ui";
-import { HOVER_OPACITY, SPACING, TEXT_SIZE } from "@/constants";
-import { Link } from "@/i18n/routing";
-import { cn } from "@/lib/utils";
+import { AnimatedSection, Container, SectionHeader } from "@/components/ui";
+import { SPACING } from "@/constants";
 import { TBlogPostMeta } from "@/types";
 
 import { BlogPostCard } from "./components";
@@ -25,15 +23,7 @@ export function BlogList({ posts }: TProps) {
     <section className={SPACING.section}>
       <Container>
         <AnimatedSection className="space-y-6">
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h2 className={cn(TEXT_SIZE.heading, "font-semibold tracking-tight")}>{t("latestPosts")}</h2>
-            <Link
-              href="/blog"
-              className={cn("-my-1.5 inline-block py-1.5 text-sm text-muted-foreground", HOVER_OPACITY)}
-            >
-              {t("viewAll")}
-            </Link>
-          </div>
+          <SectionHeader title={t("latestPosts")} link={{ href: "/blog", label: t("viewAll") }} />
 
           <div className="grid gap-4 sm:grid-cols-2">
             {posts.map((post, index) => (
