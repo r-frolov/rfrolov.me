@@ -3,6 +3,7 @@
 import { memo } from "react";
 
 import { AnimatedCard, BlurImage, Tag } from "@/components/ui";
+import { formatMonthYear } from "@/lib/date";
 import { TBook } from "@/types";
 
 type TProps = {
@@ -11,11 +12,7 @@ type TProps = {
 };
 
 export const BookCard = memo(function BookCard({ book, index }: TProps) {
-  const date = new Date(book.dateRead + "-01");
-  const formattedDate = date.toLocaleDateString("en-US", {
-    month: "short",
-    year: "numeric",
-  });
+  const formattedDate = formatMonthYear(`${book.dateRead}-01`);
 
   return (
     <AnimatedCard index={index} href={`/readings/${book.slug}`} internal linkLabel={book.title}>
