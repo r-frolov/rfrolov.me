@@ -38,7 +38,7 @@ export function CurrentlyReading({ book }: TProps) {
             className="object-cover"
             sizes="60px"
           />
-          <div className="flex-1">
+          <div className="min-w-0 flex-1 max-w-2xl">
             <h3 className="font-medium">{book.title}</h3>
             <p className="text-sm text-muted-foreground">{book.author}</p>
             <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{book.description}</p>
@@ -46,7 +46,7 @@ export function CurrentlyReading({ book }: TProps) {
           <ArrowRight
             className={cn(
               ICON_SIZE.md,
-              "flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1"
+              "ms-auto flex-shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-1"
             )}
           />
         </div>
