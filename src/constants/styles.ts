@@ -19,9 +19,6 @@ export const ICON_SIZE = {
   lg: "h-6 w-6",
 } as const;
 
-// The font is monospace throughout, so 1ch is one character.
-export const PROSE_MEASURE = "max-w-[70ch]";
-
 export const TEXT_SIZE = {
   label: "text-xs",
   body: "text-sm",

@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { AnimatedSection, Container, SectionHeader } from "@/components/ui";
-import { EXTERNAL_LINK_PROPS, HOVER_TEXT_COLOR, PROSE_MEASURE } from "@/constants";
+import { EXTERNAL_LINK_PROPS, HOVER_TEXT_COLOR } from "@/constants";
 import { talks } from "@/data/talks";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,7 @@ export function CVTalks({ id }: TProps) {
           <div className="space-y-6">
             {talks.map((talk) => (
               <div key={talk.id} className="flex items-start justify-between gap-4">
-                <div className={cn("space-y-1 min-w-0", PROSE_MEASURE)}>
+                <div className="space-y-1 min-w-0">
                   <p className="text-sm font-medium">{talk.title}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{talk.description}</p>
                   <p className="text-xs text-muted-foreground/60">
