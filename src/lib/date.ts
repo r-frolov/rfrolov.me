@@ -1,16 +1,14 @@
 import { SITE_TIME_ZONE } from "@/constants/site";
 
-const FALLBACK_LOCALE = "en-US";
-
 type TDateFormatOptions = {
+  locale: string;
   month?: "short" | "long";
-  locale?: string;
 };
 
 // Frontmatter dates are calendar dates and parse as UTC midnight, so formatting
 // them in the visitor's zone shifts them a day back west of Greenwich.
-export function formatDate(date: string | Date, options: TDateFormatOptions = {}): string {
-  const { month = "short", locale = FALLBACK_LOCALE } = options;
+export function formatDate(date: string | Date, options: TDateFormatOptions): string {
+  const { locale, month = "short" } = options;
 
   return new Date(date).toLocaleDateString(locale, {
     year: "numeric",
@@ -20,8 +18,8 @@ export function formatDate(date: string | Date, options: TDateFormatOptions = {}
   });
 }
 
-export function formatMonthYear(date: string | Date, options: TDateFormatOptions = {}): string {
-  const { month = "short", locale = FALLBACK_LOCALE } = options;
+export function formatMonthYear(date: string | Date, options: TDateFormatOptions): string {
+  const { locale, month = "short" } = options;
 
   return new Date(date).toLocaleDateString(locale, {
     year: "numeric",
