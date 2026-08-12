@@ -1,6 +1,10 @@
 import { SITE_NAME, SITE_ROLE, SITE_URL } from "@/constants";
 import { TBlogPostMeta, TBook, TProjectDetailMeta } from "@/types";
 
+function toLanguageTag(locale: string): string {
+  return locale === "de" ? "de-DE" : "en-US";
+}
+
 export function generatePersonSchema() {
   return {
     "@context": "https://schema.org",
@@ -40,7 +44,7 @@ export function generateBlogPostSchema(post: TBlogPostMeta, locale: string) {
     keywords: post.tags.join(", "),
     // Approximate word count based on reading time (200 words per minute)
     wordCount: post.readingTime * 200,
-    inLanguage: locale === "de" ? "de-DE" : "en-US",
+    inLanguage: toLanguageTag(locale),
   };
 }
 
@@ -77,7 +81,7 @@ export function generateExperiencePageSchema(locale: string) {
       },
     },
     url: `${SITE_URL}/${locale}/experience`,
-    inLanguage: locale === "de" ? "de-DE" : "en-US",
+    inLanguage: toLanguageTag(locale),
   };
 }
 
@@ -97,7 +101,7 @@ export function generateProjectJsonLd(project: TProjectDetailMeta, locale: strin
     url: project.href || `${SITE_URL}/${locale}/projects/${project.id}`,
     ...(project.github && { codeRepository: project.github }),
     keywords: project.technologies.join(", "),
-    inLanguage: locale === "de" ? "de-DE" : "en-US",
+    inLanguage: toLanguageTag(locale),
   };
 }
 
@@ -141,6 +145,6 @@ export function generateBookReviewSchema(book: TBook, locale: string) {
       url: SITE_URL,
     },
     url: `${SITE_URL}/${locale}/readings/${book.slug}`,
-    inLanguage: "en-US",
+    inLanguage: toLanguageTag(locale),
   };
 }

@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 
 import { m } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { BackLink, BlurImage, Container, Tag } from "@/components/ui";
 import { ANIMATION_DURATION, TEXT_SIZE } from "@/constants";
@@ -18,8 +18,9 @@ type TProps = {
 
 export function BookDetail({ book, children }: TProps) {
   const t = useTranslations("readings");
+  const locale = useLocale();
 
-  const formattedDate = formatMonthYear(`${book.dateRead}-01`, { month: "long" });
+  const formattedDate = formatMonthYear(`${book.dateRead}-01`, { month: "long", locale });
 
   return (
     <section className="py-12 lg:py-16">
