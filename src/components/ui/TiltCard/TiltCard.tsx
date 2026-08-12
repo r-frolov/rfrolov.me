@@ -39,7 +39,7 @@ export function TiltCard({ children, maxTilt = 8, className }: TTiltCardProps) {
   const boxShadow = useTransform(
     [smoothShadowX, smoothShadowY, shadowStrength],
     ([x, y, strength]: number[]) =>
-      `${x}px ${y}px 32px rgba(0, 0, 0, ${0.18 * strength}), 0 1px 2px rgba(0, 0, 0, ${0.05 * strength})`
+      `${x}px ${y}px 32px hsl(var(--lift) / calc(var(--lift-cast) * ${strength})), 0 1px 2px hsl(var(--lift) / calc(var(--lift-contact) * ${strength}))`
   );
 
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {

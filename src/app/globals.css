@@ -17,7 +17,12 @@
   --color-border-strong: hsl(var(--border-strong));
 }
 
-/* --border is the hairline for dividers and surface edges. --border-strong is
+/* --lift is the color a raised surface casts. On a white page that is a black
+   shadow; on a near-black page a black shadow has nowhere left to darken, so
+   depth has to come from a faint light halo instead. --lift-cast is the wide
+   blur, --lift-contact the tight one directly under the edge.
+
+   --border is the hairline for dividers and surface edges. --border-strong is
    for boundaries that identify a control on their own (form fields); it stays
    at or above 3:1 against --background in both themes, which is what WCAG
    1.4.11 requires. --muted is a fill color — never use it as a border.
@@ -35,6 +40,9 @@
   --border-strong: 0 0% 57%;
   --accent: 215 60% 50%;
   --accent-foreground: 215 60% 40%;
+  --lift: 0 0% 0%;
+  --lift-cast: 0.18;
+  --lift-contact: 0.05;
 }
 
 .dark {
@@ -46,6 +54,9 @@
   --border-strong: 0 0% 42%;
   --accent: 215 50% 60%;
   --accent-foreground: 215 50% 70%;
+  --lift: 0 0% 100%;
+  --lift-cast: 0.07;
+  --lift-contact: 0.04;
 }
 
 /* Pure black/white only — a tinted neutral picks up the surface behind it and
